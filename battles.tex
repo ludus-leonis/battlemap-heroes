@@ -1,0 +1,240 @@
+\documentclass{book}
+
+\usepackage{battles}
+
+\usepackage{contour}
+\contourlength{2pt}
+\contournumber{24}
+
+\usepackage{lettrine}
+
+\newcommand{\dropping}[2][3]{\lettrine[lines=#1]{\fffancy#2}{}}
+
+% --- Hyperlinks und PDF -------------------------------------------------------
+\hypersetup{
+	pdftitle={Battlemap Heroes},
+	pdfauthor={Markus Leupold-Loewenthal},
+}
+
+% ##############################################################################
+% ##############################################################################
+% ##############################################################################
+% ##############################################################################
+% ##############################################################################
+
+\input{misc.tex}
+\input{basic.tex}
+\input{expert.tex}
+\input{heroes.tex}
+\input{changelog.tex}
+\input{bestiary.tex}
+\input{mission-01.tex}
+\input{mission-02.tex}
+
+\begin{document}\fftext
+
+% ### COVER ####################################################################
+
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/cover.pdf}}}
+\thispagestyle{empty}
+
+\vspace*{1cm}
+
+\vfill
+
+\centerline{\huge\contour{white}{\fffancy\textbf{LUDUS LEONIS}}}
+
+\newpage
+
+% ### INNER COVER ##############################################################
+
+\bmhMiscCredits
+
+\newpage
+
+% ### INTRO ####################################################################
+
+\onePageHeader[lIntro]{\bmhMiscIntroHeadline}{\bmhMiscIntroToc}
+\begin{multicols}{2}\raggedbottom
+	\bmhMiscIntro
+\end{multicols}
+
+\noindent{\color{red}\textbf{\color{red}ACHTUNG!} \bmh~ist noch in Entwicklung und befindet sich derzeit in der Beta- bzw. Testphase. Die Regeln sind spielbar und soweit komplett, erwarte dir aber kein fertig ausbalanciertes und lektoriertes Spiel. Feedback ist jederzeit willkommen!}
+
+\newpage
+
+% ### BASIC ####################################################################
+
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{1mm}
+\newpage
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{119mm}
+{\fffancy\color{white}\fontsize{56}{56}\selectfont
+	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhBasicChapter}
+}\newpage
+
+\twoPageHeader[lPreparation]{\bmhBasicHeadline}{\bmhMiscPreparationToc}
+\backgroundHalfImage{bmh/setup.pdf}{17cm}
+\begin{multicols}{2}
+	\bmhMiscPreparation
+\end{multicols}\newpage
+\grenewcommand{\bgboxinjectalways}{}
+
+\twoPageHeader[lHeroes]{\bmhBasicHeadline}{\bmhMiscCharactersToc}
+\begin{multicols*}{2}
+	\bmhMiscCharacters
+\end{multicols*}\newpage
+
+\twoPageHeader[lRulesBasic]{\bmhBasicHeadline}{\bmhBasicToc}
+\begin{multicols}{2}
+	\bmhBasic
+	\bmhBasicGM
+\end{multicols}\newpage
+\thispagestyle{empty}
+\bmhMiscHalt
+\newpage
+
+% ### EXPERT ###################################################################
+
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{1mm}
+\newpage
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{119mm}
+{\fffancy\color{white}\fontsize{56}{56}\selectfont
+	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhExpertChapter}
+}\newpage
+
+\twoPageHeader[lRulesExpert]{\bmhExpertHeadline}{\bmhExpertToc}
+\begin{multicols}{2}
+	\bmhExpert
+\end{multicols}\newpage
+
+\onePageHeader[lHeroCleric]{\bmhHeroesClericHeadline}{\bmhHeroesClericToc}\zlabel{lPowers}
+\begin{multicols*}{2}
+	\bmhHeroesCleric
+\end{multicols*}\newpage
+
+\onePageHeader[lHeroFigher]{\bmhHeroesFighterHeadline}{\bmhHeroesFighterToc}
+\begin{multicols*}{2}
+	\bmhHeroesFighter
+\end{multicols*}\newpage
+
+\onePageHeader[lHeroWizard]{\bmhHeroesWizardHeadline}{\bmhHeroesWizardToc}
+\begin{multicols*}{2}
+	\bmhHeroesWizard
+\end{multicols*}\newpage
+
+\onePageHeader[lHeroThief]{\bmhHeroesThiefHeadline}{\bmhHeroesThiefToc}
+\begin{multicols*}{2}
+	\bmhHeroesThief
+\end{multicols*}\newpage
+
+\onePageHeader[lHeroRanger]{\bmhHeroesRangerHeadline}{\bmhHeroesRangerToc}
+\begin{multicols*}{2}
+	\bmhHeroesRanger
+\end{multicols*}\newpage
+
+\onePageHeader[lItems]{\bmhExpertItemsHeadline}{\bmhExpertItemsToc}
+\begin{multicols}{2}
+	\bmhExpertItems
+\end{multicols}\newpage
+
+% ### SCENARIOS ################################################################
+
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{1mm}
+\newpage
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+\vspace*{119mm}
+{\fffancy\color{white}\fontsize{56}{56}\selectfont
+	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscGMOnly}
+}\newpage
+
+% ------------------------------------------------------------------------------
+\backgroundpagesmissions
+
+\twoPageHeader[lAI]{\bmhMissionIHeadline}{\bmhMissionIToc}
+\zlabel{lMissions}
+\backgroundHalfImage{bmh/mission-1.pdf}{15cm}
+\begin{multicols}{2}
+	\bmhMissionI
+\end{multicols}\newpage
+\grenewcommand{\bgboxinjectalways}{}
+
+\twoPageHeader[lAI]{\bmhMissionIIHeadline}{\bmhMissionIIToc}
+\backgroundHalfImage{bmh/mission-2.pdf}{18cm}
+\begin{multicols}{2}
+	\bmhMissionII
+\end{multicols}\newpage
+\grenewcommand{\bgboxinjectalways}{}
+
+% ### BESTIARY #################################################################
+
+\backgroundpages
+\twoPageHeader[lBestiary]{\bmhBestiaryHeadline}{\bmhBestiaryToc}
+\begin{multicols*}{2}
+	\bmhBestiary
+\end{multicols*}\newpage
+
+% ### CHANGELOG ################################################################
+
+\twoPageHeader{\bmhChangelogHeadline}{\bmhChangelogToc}
+\begin{multicols}{2}
+	\bmhChangelog
+\end{multicols}\newpage
+
+% ### INDEX ####################################################################
+
+\onePageHeader[lIndex]{Index}{Index}
+\noindent\textit{Hinweis: Kursive Seitenzahlen beziehen sich auf Basis-Regeln und sind beim Spiel nach Experten-Regeln nicht von Belang.}
+
+\printindex
+
+\newpage
+
+% ### BACK MATTER ##############################################################
+
+\onePageHeader[lSheets]{\bmhMiscCharSheets}{\bmhMiscCharSheetsToc}
+
+\centering\includegraphics[height=8.75cm]{\image{bmh/charsheet.pdf}}
+\hspace{2mm}
+\centering\includegraphics[height=8.75cm]{\image{bmh/charsheet.pdf}}
+
+\vfill
+
+\centering\includegraphics[height=8.75cm]{\image{bmh/charsheet-big.pdf}}
+
+\newpage
+
+% ### BACKCOVER ################################################################
+
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/backcover.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}{}
+
+\vspace*{1mm}
+
+\vfill
+
+\fffancy\fontsize{14pt}{17pt}\selectfont
+\hspace*{-2mm}\centering\rotatebox{-4.65}{\parbox{10cm}{\bmhMiscBackcover}}
+
+\vspace*{1.5cm}
+
+\newpage
+
+\end{document}

@@ -1,0 +1,564 @@
+\ProvidesFile{battles.sty}
+\ProvidesPackage{battles}
+
+% --- common packages --------------------------------------------------
+
+\usepackage[cmyk,table,usenames,dvipsnames]{xcolor} % load early to avoid name clash
+\usepackage{verbatim}  % \begin{comment} support
+\usepackage{eso-pic}   % AddToShipoutPicture support
+\usepackage{units}     % nice fractions (like "1/2")
+\usepackage{multicol}  % 2-columns
+\usepackage{lipsum}    % dummy texts
+
+% --- colors -----------------------------------------------------------
+
+\DefineNamedColor{named}{primary}{cmyk}{0.75,0.68,0.67,0.90}   % blacker than black
+\DefineNamedColor{named}{secondary}{cmyk}{0.0,0.0,0.0,0.10}    % white
+
+% --- custom latex commands --------------------------------------------
+
+\makeatletter
+\def\gnewcommand{\g@star@or@long\new@command}
+\def\grenewcommand{\g@star@or@long\renew@command}
+\def\g@star@or@long#1{%
+  \@ifstar{\let\l@ngrel@x\global#1}{\def\l@ngrel@x{\long\global}#1}}
+\makeatother
+
+% --- units ------------------------------------------------------------
+
+\setlength{\unitlength}{1mm}
+
+% --- language ---------------------------------------------------------
+
+\usepackage{polyglossia}
+
+\hyphenation{LUDUS}
+\hyphenation{LEONIS}
+
+% --- page & basic text setup ------------------------------------------
+
+\usepackage[driver=none]{geometry}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0mm}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\finalhyphendemerits=10000
+\brokenpenalty=7500
+\pretolerance=2500
+\tolerance=500
+\hyphenpenalty=225
+\exhyphenpenalty=100
+\doublehyphendemerits=7500
+\finalhyphendemerits=7500
+\lefthyphenmin=3
+\righthyphenmin=3
+\looseness=1
+\multicolpretolerance=2500
+\multicoltolerance=500
+\setcounter{collectmore}{-1}
+
+\usepackage[final]{microtype}
+
+\geometry{% A5+3mm
+	papersize={154mm,216mm},
+	textwidth=132mm,
+	textheight=180mm,
+	inner=11mm,
+	top=25mm,
+	columnsep=5mm,
+	footskip=5mm
+}
+\usepackage[width=148mm,height=210mm,center]{crop} % crop to eBook/A5
+
+% --- header and footer ------------------------------------------------
+
+\usepackage{fancyhdr}
+
+\newcommand{\bmhFooter}{\textbf{\color{primary}\fffancy\thepage}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfootoffset[RO,LE]{0mm}
+\fancyfoot[C]{\bmhFooter}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- pdf tweaks -------------------------------------------------------
+
+% fix a transparent png rendering bug
+\AddToShipoutPicture{%
+\makeatletter%
+\special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+\makeatother%
+}
+
+% some usefull default pdf settings
+\usepackage{hyperref}
+\hypersetup{
+	pdfpagelayout=TwoPageRight,
+	pdfstartview=Fit,
+	pdfpagemode=UseOutlines,
+	pdfprintscaling=None,
+	colorlinks=false,
+	hidelinks=true,
+	bookmarksnumbered=false,
+	bookmarksopen=false
+}
+
+\usepackage{ocgx} % for pdf layer support
+
+% --- fonts & symbols --------------------------------------------------
+
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}
+
+\newcommand{\fsNormal}{\fontsize{10pt}{12pt plus 0.125pt minus 0.125pt}}
+\newcommand{\fsSmall}{\fontsize{9pt}{11pt plus 0.125pt minus 0.125pt}}
+\renewcommand{\normalsize}{\fsNormal\selectfont}
+\renewcommand{\small}{\fsSmall\selectfont}
+% note: those default sizes are usually overridden in the content.xx.tex files
+% to reflect languages that need more/less space
+
+\ifdefined\fontsearchpath\else\newcommand{\fontsearchpath}{fonts}\fi
+\newfontfamily{\fftext}[
+	Path=\fontsearchpath/rubik/,
+	Mapping=tex-text,
+	UprightFont={Rubik-Regular},
+	BoldFont={Rubik-Bold},
+	ItalicFont={Rubik-Italic},
+	BoldItalicFont={Rubik-BoldItalic}
+]{Rubik}
+\newfontfamily{\ffextra}[
+	Path=\fontsearchpath/rubik/,
+	Mapping=tex-text,
+	UprightFont={Rubik-Regular},
+	BoldFont={Rubik-Bold},
+	ItalicFont={Rubik-Italic},
+	BoldItalicFont={Rubik-BoldItalic}
+]{Rubik}
+\newfontfamily{\fffancy}[
+	Path=\fontsearchpath/piedra/,
+	Mapping=tex-text,
+	UprightFont={Piedra-Regular},
+	BoldFont={Piedra-Regular}
+]{Piedra}
+\newfontfamily{\ffdings}[
+	Path=\fontsearchpath/nipajin-dingbats/,
+	Mapping=tex-text,
+	UprightFont={NIPAJIN-Dingbats},
+	ItalicFont={NIPAJIN-Dingbats-Italic},
+	BoldFont={NIPAJIN-Dingbats-Bold}
+]{NIPAJIN-Dingbats}
+
+\newcommand{\TN}{{\ffdings \textit{t}}}
+\newcommand{\HD}{{\ffdings \textbf{h}}}
+\newcommand{\AD}{{\ffdings \textbf{f}}}
+\newcommand{\RD}{{\ffdings \textbf{s}}}
+\newcommand{\PT}{{\ffdings \textup{b}}}
+\newcommand{\FT}{{\ffdings \textup{a}}}
+
+\newcommand{\dTen}{{\ffdings \textup{4}}}
+\newcommand{\weight}{{\ffdings \textup{w}}}
+\newcommand{\book}{{\ffdings \textup{p}}}
+\newcommand{\chat}{{\ffdings \textup{C}}}
+\newcommand{\gears}{{\ffdings \textup{G}}}
+\newcommand{\suit}{{\ffdings \textup{S}}}
+\newcommand{\tools}{{\ffdings \textup{T}}}
+
+\newcommand{\trap}{{\ffdings {k}}}
+\newcommand{\treasure}{{\ffdings \textbf{D}}}
+\newcommand{\info}{{\ffdings \textbf{i}}}
+\newcommand{\search}{{\ffdings {E}}}
+\newcommand{\gold}{G}
+
+\newcommand{\nipajin}{\href{http://ludus-leonis.com/nipajin}{\makebox{NIP'AJIN}}}
+\newcommand{\ludusleonis}{\href{http://ludus-leonis.com/}{\makebox{LUDUS} \makebox{LEONIS}}}
+
+% --- images & graphics ------------------------------------------------
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{fadings}
+\usetikzlibrary{shadows}
+\usetikzlibrary{calc}
+
+% simple wrapper to reference images without clutter
+\newcommand{\image}[1]{out/images/#1}
+
+% --- header & footer --------------------------------------------------
+
+\fancypagestyle{battles}{%
+	\fancyhf{}
+	\fancyhead[LE,RO]{\color{white}\fftext\textbf{\thepage}}
+}
+\topmargin -15mm
+\headsep 9mm
+\footskip 2mm
+\pagestyle{battles}
+
+% --- page references --------------------------------------------------
+
+\usepackage{zref-user,zref-titleref,zref-hyperref}
+\newcommand{\refPage}[1]{\book\,\zpageref{#1}\,}
+
+% --- common style items -----------------------------------------------
+
+\newcommand{\say}[1]{„\textit{#1}“}
+
+% --- lists ------------------------------------------------------------
+
+\newcommand{\bmhList}[1]{%
+	\begin{list}{
+		\color{primary}\dTen}{\leftmargin=1.5em\itemsep=3pt\parsep=0pt}#1
+	\end{list}
+}
+
+% --- index --------------------------------------------------------------------
+
+\usepackage{makeidx}
+\usepackage[unbalanced,indentunit=1em]{idxlayout}
+\makeindex
+
+% keyword automatially go to the index
+% 1 = optional alternate word for index (replaces original term)
+%     if an asterisk is given, this word does not go on the index
+% 2 = word to highlight
+\newcommand{\keyword}[2][auto]{{%
+	\textbf{#2}%
+	\expandafter\ifstrequal\expandafter{#1}{auto}{\index{#2}}{%
+		\expandafter\ifstrequal\expandafter{#1}{*}{}{\index{#1}}%
+	}%
+}}
+
+% style for index page numbers
+\newcommand{\basic}[1]{\textit{#1}}
+
+% --- tables -----------------------------------------------------------
+
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{ragged2e}
+\usepackage{multirow}
+
+\renewcommand{\tabcolsep}{1mm}
+
+\newcolumntype{x}[1]{%
+>{\raggedright\hspace{0pt}}p{#1}%
+}
+\newcolumntype{y}[1]{%
+>{\centering\hspace{0pt}}p{#1}%
+}
+\newcolumntype{z}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}%
+}
+
+\newcommand{\thead}[1]{\fffancy\textup{\color{white}#1}}
+\newcommand{\tn}{\tabularnewline}
+
+\newcommand{\bmhTable}[4][\ffextra\small]{\renewcommand{\arraystretch}{0.95}{
+{#1%
+\vspace{2pt plus 6pt}%
+\noindent%
+\rowcolors[]{1}{secondary}{}%
+\RaggedRight\setlength{\extrarowheight}{0.15\baselineskip}%
+\begin{tabularx}{\columnwidth}{#2}
+\rowcolor{primary}
+#3
+#4
+\end{tabularx}\vspace{2pt plus 6pt}}}}
+
+% --- background images/gfx --------------------------------------------
+
+\newcommand{\background}{} % contains the background for each page
+\AddToShipoutPicture{\background}
+
+% --- headlines & captions -----------------------------------------------------
+
+\newcommand{\bmhBanner}[3][none]{%
+\phantomsection\addcontentsline{toc}{section}{#3}{%
+	\centerline{\begin{tikzpicture}%
+		\node [
+			text width=1.5\paperwidth
+		]{};
+		\node [
+			text height=17pt
+		]{{\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{primary}\addfontfeature{LetterSpace=-2.0}\uppercase{#2}}};
+	\end{tikzpicture}}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}%
+}}
+
+\newcommand{\bmhSection}[2][none]{%
+	\noindent
+	\parbox[c][1.5cm]{\columnwidth}{%
+		\vspace{2.5mm}
+		\fffancy\color{primary}\fontsize{2.0em}{2.0em plus 0pt minus 0pt}\selectfont\textbf{\uppercase{#2}}
+	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
+}
+
+\newcommand{\bmhSubsection}[2][none]{% custom sections: centered smallcaps
+	\noindent\parbox{\columnwidth}{%
+		\bigskip
+		\centerline{\color{primary}\fffancy\fontsize{12pt}{14pt plus 0pt minus 0pt}\selectfont\textbf{\textsc{{#2}}}}
+		\medskip
+	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
+}
+
+% --- page backgrounds ---------------------------------------------------------
+
+\newcommand{\bgbox}{}
+\newcommand{\bgboxinjectonce}{}
+\newcommand{\bgboxinjectalways}{}
+\newcommand{\bgboxverticaltopheight}{8mm}
+\newcommand{\bgboxverticalbottomheight}{8mm}
+\newcommand{\bgboxtopcolor}{primary}
+\newcommand{\bgboxtopheight}{\bgboxverticaltopheight}
+\newcommand{\bgboxbottomcolor}{primary}
+\newcommand{\bgboxbottomheight}{\bgboxverticalbottomheight}
+\newcommand{\backgroundbottom}[2]{%
+\grenewcommand{\bgboxbottomcolor}{#1}%
+\grenewcommand{\bgboxbottomheight}{#2}%
+}
+\newcommand{\backgroundtop}[2]{%
+\grenewcommand{\bgboxtopcolor}{#1}%
+\grenewcommand{\bgboxtopheight}{#2}%
+}
+\newcommand{\backgroundbottomreset}{
+	\grenewcommand{\bgboxbottomcolor}{primary}%
+	\grenewcommand{\bgboxbottomheight}{\bgboxverticalbottomheight}%
+}
+\newcommand{\backgroundtopreset}{
+	\grenewcommand{\bgboxtopcolor}{primary}%
+	\grenewcommand{\bgboxtopheight}{\bgboxverticaltopheight}%
+}
+
+\newcommand{\backgroundlayername}{Background}
+
+\newcommand{\twoPageHeader}[3][none]{
+	\grenewcommand{\bgboxverticaltopheight}{20mm}
+	\grenewcommand{\bgboxtoptextonepage}{}
+	\grenewcommand{\bgboxtoptexttwopage}{\expandafter\MakeUppercase\expandafter{#2}}
+	\phantomsection\addcontentsline{toc}{section}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+}
+\newcommand{\onePageHeader}[3][none]{
+	\grenewcommand{\bgboxverticaltopheight}{20mm}
+	\grenewcommand{\bgboxtoptextonepage}{\expandafter\MakeUppercase\expandafter{#2}}
+	\grenewcommand{\bgboxtoptexttwopage}{}
+	\phantomsection\addcontentsline{toc}{chapter}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+}
+
+\newcommand{\backgroundHalfImage}[2]{
+	\grenewcommand{\bgboxinjectalways}{
+		\begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+			\ifodd\thepage
+				\node [
+					align=center,
+					yshift=-0.5cm,
+					xshift=-74.0mm
+				] (0,0) {\includegraphics[height=#2]{\image{#1}}};
+			\else
+				\node [
+					align=center,
+					yshift=-0.5cm,
+					xshift=74.0mm
+				] (0,0) {\includegraphics[height=#2]{\image{#1}}};
+			\fi
+		\end{tikzpicture}
+	}
+}
+
+\usepackage[skins]{tcolorbox}
+\newcommand{\bgboxtoptextonepage}{}
+\newcommand{\bgboxtoptexttwopage}{}
+\newcommand{\backgroundpages}{%
+	\renewcommand{\background}{%
+			\begin{tikzpicture}[
+				remember picture,overlay,shift={(current page.center)},
+				sketch/.style={
+%					decorate,
+					decoration={
+						random steps,
+						segment length=26pt,
+						amplitude=0.33pt
+					}
+				}
+			]
+				\fill [
+					white,
+					xshift=-2\paperwidth,
+					yshift=-2\paperheight
+				] (0,0) rectangle (4\paperwidth,4\paperheight);% white spacer box
+				\node [blue, align=center, yshift=9.5cm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptextonepage}; % headline
+				\ifodd\thepage
+					\node [blue, align=center, yshift=9.5cm, xshift=-74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
+				\else
+					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
+				\fi
+		\begin{ocg}{\backgroundlayername}{oc1}{1}%
+				\path [
+					fill stretch image=\image{bmh/grid.pdf},
+					xshift=-0.5\paperwidth,
+					yshift=-0.5\paperheight
+				] (0,0) rectangle (\paperwidth,\paperheight);% bg image box
+				\path [
+					fill stretch image=\image{bmh/pages.pdf},
+					xshift=-0.5\paperwidth,
+					yshift=0.5\paperheight,
+					yshift=-\bgboxtopheight,
+					yshift=-1mm
+				] (0,0) rectangle (\paperwidth,\paperheight);% top box
+				\path [
+					fill stretch image=\image{bmh/pages.pdf},
+					xshift=-0.5\paperwidth,
+					yshift=-1.5\paperheight,
+					yshift=\bgboxbottomheight,
+					yshift=1mm
+				] (0,0) rectangle (\paperwidth,\paperheight);% bottom box
+				\node [blue, align=center, yshift=9.5cm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptextonepage}; % headline
+				\ifodd\thepage
+					\node [blue, align=center, yshift=9.5cm, xshift=-74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
+				\else
+					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
+				\fi
+		\end{ocg}%
+			\end{tikzpicture}\begin{ocg}{\backgroundlayername}{oc1}{1}\bgboxinjectonce\end{ocg}\bgboxinjectalways%
+			\bgbox%
+			\grenewcommand{\bgboxtopcolor}{primary}%
+			\grenewcommand{\bgboxtopheight}{\bgboxverticaltopheight}%
+			\grenewcommand{\bgboxbottomcolor}{primary}%
+			\grenewcommand{\bgboxbottomheight}{\bgboxverticalbottomheight}%
+			\grenewcommand{\bgboxinjectonce}{}%
+	}
+}
+\backgroundpages
+
+\newcommand{\backgroundpagesmissions}{%
+	\renewcommand{\background}{%
+			\begin{tikzpicture}[
+				remember picture,overlay,shift={(current page.center)},
+				sketch/.style={
+%					decorate,
+					decoration={
+						random steps,
+						segment length=26pt,
+						amplitude=0.33pt
+					}
+				}
+			]
+				\fill [
+					white,
+					xshift=-2\paperwidth,
+					yshift=-2\paperheight
+				] (0,0) rectangle (4\paperwidth,4\paperheight);% white spacer box
+				\node [blue, align=center, yshift=9.5cm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptextonepage}; % headline
+				\ifodd\thepage
+					\node [blue, align=center, yshift=9.5cm, xshift=-74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
+				\else
+					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
+				\fi
+		\begin{ocg}{\backgroundlayername}{oc1}{1}%
+				\path [
+					fill stretch image=\image{bmh/blackpage.pdf},
+					xshift=-0.5\paperwidth,
+					yshift=-0.5\paperheight
+				] (0,0) rectangle (\paperwidth,\paperheight);% bg image box
+				\node [blue, align=center, yshift=9.5cm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptextonepage}; % headline
+				\ifodd\thepage
+					\node [blue, align=center, yshift=9.5cm, xshift=-74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
+				\else
+					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
+				\fi
+		\end{ocg}%
+			\end{tikzpicture}\begin{ocg}{\backgroundlayername}{oc1}{1}\bgboxinjectonce\end{ocg}%
+		\bgboxinjectalways%
+		\grenewcommand{\bgboxinjectonce}{}%
+	}
+}
+
+% Replace the footer with a figure in a bottom background box.
+% 1 = background box height (optional)
+% 2 = content
+\newcommand{\backgroundFooterFig}[2][none]{%
+	\begin{figure*}[b!]
+		\fboxsep=0pt\setbox0=\vbox{%
+		\begin{minipage}[t]{\textwidth}#2\end{minipage}%
+		}\dp0=\dimexpr\dp0-\footskip\relax\box0
+		\AtBeginShipout{%
+			\ifstrequal\expandafter{#1}{none}{}{\backgroundbottom{primary}{#1}}
+			\fancyhf{}\nextpagefoot
+		}
+	\end{figure*}
+}
+\def\nextpagefoot{%
+	\AtBeginShipout{%
+		\fancyfoot[C]{\bmhFooter}
+		\backgroundbottomreset
+	}
+}
+
+% --- customized styles --------------------------------------------------------
+
+% licencse
+\newcommand\CcBySaAt{{\small
+
+	\begin{center}
+	Dieses Werk untersteht folgender Creative Commons Lizenz: \\
+	\textbf{Namensnennung--Weitergabe unter gleichen Bedingungen 4.0}\\
+	(Marken, Logos und Schriftarten ausgenommen) \\
+	{\scriptsize Vollständiger Lizenztext: \href{http://creativecommons.org/licenses/by-sa/4.0/legalcode}{\emph{http://creativecommons.org/licenses/by-sa/4.0/legalcode}}}
+	\end{center}
+
+}}
+
+% a box for the powers
+% 1 = name
+% 2 = classes
+% 3 = description
+\newlength{\powercol}
+\newcommand{\power}[3]{{%
+	\smallskip
+	\setlength\fboxrule{0.5mm}%
+	\setlength\fboxsep{0mm}%
+	\noindent\hspace*{-1mm}\begin{tikzpicture}\node [draw=primary, fill=primary, line width=1mm, decorate, rectangle, rounded corners, inner sep=0.5mm] (box) {
+	\setlength\fboxsep{1mm}%
+	\setlength{\powercol}{\columnwidth}\addtolength{\powercol}{-2mm}%
+	\parbox{\columnwidth}{%
+	\fffancy
+	\parbox[t][1.2em]{\columnwidth}{\color{white}\textbf{#1\hfill#2}}
+	\fftext
+	\begin{tikzpicture}\node [draw=white, fill=white, text width=\powercol, line width=0mm, decorate, rectangle, rounded corners, inner sep=1mm]{
+	\small
+	\parbox[t]{\columnwidth}{#3 \vfill}%
+	};\end{tikzpicture}%
+	}%
+	};\end{tikzpicture}%
+	\smallskip
+}}
+
+% rough boxes / parchments
+\pgfmathsetseed{1}
+\newcommand{\parchment}[1]{{%
+	\noindent\hspace*{-0.5em}\begin{tikzpicture}[parchment/.style={
+			black, draw=white, fill=white, decorate, line width=1.0pt, inner sep=0.5em,
+			decoration={random steps, segment length=.5cm, amplitude=.2mm}
+	}]
+		\node[parchment] (1) at (0,0) {\parbox[t]{\columnwidth}{\parindent=1em #1}};
+	\end{tikzpicture}
+}}
+\newcommand{\example}[1]{{%
+	\vspace{1.5mm}
+	\noindent\begin{tikzpicture}[parchment/.style={
+			black, fill=white, draw=black, decorate, dashed, line width=0.75pt, inner sep=0.5em,
+			decoration={random steps, segment length=.5cm, amplitude=.15mm}
+	}]
+		\node[parchment] (1) at (0,0) {\parbox[t]{0.94\columnwidth}{\fontsize{8pt}{10pt}\fftext\selectfont\color{black}#1}};
+	\end{tikzpicture}%
+}}
+
+\newcommand{\nbsp}{\,\,}
+
+\newcommand{\tag}[1]{[#1]}%🔖
