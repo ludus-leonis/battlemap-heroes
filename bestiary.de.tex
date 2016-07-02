@@ -1,0 +1,99 @@
+\newcommand{\stats}{{\ffdings \textbf{G}}}
+\newcommand{\weapons}{{\ffdings \textbf{f}}}
+\newcommand{\tactics}{{\ffdings \textbf{C}}}
+\newcommand{\powers}{{\ffdings \textbf{e}}}
+
+\newcommand{\bmhBestiaryHeadline}{Bestiarium}
+\newcommand{\bmhBestiaryToc}{Bestiarium}
+\newcommand{\bmhBestiary}{
+
+	\dropping{D}ieses Kapitel enthält Spielwerte und Hintergrundinformation der Kreaturen, denen sich Helden in ihren Missionen stellen müssen. Die Einträge folgen einem Schema:
+
+	\bmhList{
+		\item Der \keyword{Name} der Kreatur, gefolgt von ihrer \keyword{Stufe} in Klammer.
+		\item Ein kurzer \keyword{Beschreibungstext}.
+		\item Die \keyword{Spielwerte}\nbsp\stats. Attribute sind als \say{ST/AB, GE/RE, IN/WI} angegeben.
+		\item \keyword{Waffen}\nbsp\weapons~und sonstige Ausrüstung.
+		\item Etwaige besondere \keyword{Fähigkeiten}\nbsp\powers.
+		\item Die übliche \keyword{Taktik}\nbsp\tactics~der Kreatur.
+	}
+
+	\bmhSection{Kreaturenliste}
+
+	\bmhSubsection{Goblin (I)}
+		\emph{Diese kleinen, flinken und fiesen Humanoide haben grüne, ledrige Haut, spitze Zähne und einen buckeligen Rücken.}
+
+		\bmhList{
+			\item[\stats] 2/2, 2/2, 2/1; BEW5, LP1, AP3
+			\item[\weapons] rostige Messer: ST vs. AB
+			\item[\tactics] Goblins versuchen, ständig in Bewegung zu bleiben und jede Runde jemand anderen zu attackieren.
+		}
+
+	\bmhSubsection{Ork (II)}
+		\emph{Stämmige, wilde Humanoide -- zum Kämpfen geboren!}
+
+		\bmhList{
+			\item[\stats] 4/3, 3/3, 1/2; BEW4, LP2, AP3
+			\item[\weapons] Schwert: ST vs. AB
+			\item[\tactics] Orks haben eine militärische Ausbildung und versuchen, ihre Gegner zu Zweit einzukreisen, um sie am Rückzug zu hindern.
+		}
+
+	\bmhSubsection{Ratte, Riesen- (I)}
+		\emph{Riesenratten erreichen die Größe eines Hundes, haben braunes, fettiges Fell und einen langen, grauen Schwanz.}
+
+		\bmhList{
+			\item[\stats] 2/2, 2/2, 1/2; BEW5, LP1, AP3
+			\item[\weapons] Biss: ST vs. AB
+			\item[\tactics] Ratten auf Beutesuche fallen alle Lebewesen an, die sie für Futter halten. Kreaturen, die ihren Nestern zu nahe kommen, sind dabei ihr erstes Ziel.
+		}
+
+	\bmhSubsection{Skelett (I)}
+		\emph{Diese flinken, klapprigen, weißgelben Gebeine wurden durch Nekromantie zu untotem Leben erweckt.}
+
+		\bmhList{
+			\item[\stats] 2/3, 2/1, 2/1; BEW4, LP1, AP3
+			\item[\weapons] Knochenhände: ST vs. AB
+			\item[\tactics] Skelette greifen stets den ihnen am nächsten stehenden Lebenden an. Sie kratzen und schlagen, bis sie zerstört werden.
+		}
+
+	\bmhSubsection{Spinne, Riesen- (II)}
+		\emph{Der schwarze, pelzige, zweigliedrige Körper der Riesenspinne wird von acht, 1-Meter-langen Beinen getragen. Von ihren Scheren tropft Flüssigkeit.}
+
+		\bmhList{
+			\item[\stats] 3/4, 3/3, 1/2; BEW4, LP2, AP3
+			\item[\weapons] Biss: GE vs. AB
+			\item[\powers] Netz (AP1): Spinnen können Netze werfen (GE vs. RE, RW 1--5). Pro nicht abgewehrtem Erfolg ist das Opfer eine Runde [gefangen].
+			\item[\powers] Mobil (AP0): Bewegung in schwierigem Gelände kostet keine Extrapunkte.
+			\item[\tactics] Riesenspinnen versuchen erst, einen Gegner in ein Netze zu hüllen, und dann zu beißen.
+		}
+
+	\bmhSubsection{Steinerner Wächter (I)}
+		\emph{Diese Statuen aus grauem Granit dekorieren regungslos Räume und Gänge, bis sie durch einen Auslöser erweckt werden.}
+
+		\bmhList{
+			\item[\stats] 3/3, 2/1, 1/4; BEW3, LP1, AP3
+			\item[\weapons] Steinschwert: ST vs. AB
+			\item[\tactics] Steinerne Wächter müssen warten, bis sie durch eine Falle erweckt werden. Bis dahin sind sie unverwundbar. Dann versuchen sie, die auslösende Kreatur und alle, die während dessen angreifen, zu vernichten. War dies erfolgreich, kehren sie zu ihrem Platz zurück und erstarren, die auslösende Falle reaktiviert sich.
+		}
+
+	\bmhSubsection{Wiederkehrer (II)}
+		\emph{Diese Seele eines Verstorbenen wurde aus ihrer ewigen Ruhe gerissen. Als geisterhafte, schwebende Erscheinungen rächt sie sich an allen Lebenden. Wiederkehrer sind bekannt für ihre nekromantischen Kräfte und können andere Tote wiedererwecken.}
+
+		\bmhList{
+			\item[\stats] 1/4, 3/4, 3/3; BEW4, LP3, AP3
+			\item[\weapons] Geisterhand: GE vs. RE
+			\item[\powers] Lähmender Schrei (RW3, AP2): Der Schrei attackiert alle Lebenden in Reichweite (IN vs. WI). Für jeden nicht abgewehrten Erfolg ist das Opfer [hilflos] und [gefangen].
+			\item[\tactics] Wiederkehrer versuchen erst, mit ihrem Schrei so viele Gegner wie möglich zu lähmen, um diese danach mit ihrer Geisterhand zu berühren.
+		}
+
+	\bmhSubsection{Zombie (I)}
+		\emph{Diese kräftigen aber trägen Kreaturen sind nekromatisch wiederbelebte Tote. Sie gehorchen ihrem Erwecker willenlos.}
+
+		\bmhList{
+			\item[\stats] 3/2, 2/2, 2/1; BEW3, LP1, AP2
+			\item[\weapons] Krallen: ST vs. AB
+			\item[\tactics] Zombies greifen stets die ihrem Meister am nächsten stehende Kreatur an oder versuchen, an diese heran zu kommen.
+		}
+
+	% \newpage Hier fehlen noch Gegner.
+}
