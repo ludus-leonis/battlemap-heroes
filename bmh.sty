@@ -289,8 +289,7 @@
 
 % --- headlines & captions -----------------------------------------------------
 
-\newcommand{\bmhBanner}[3][none]{%
-\phantomsection\addcontentsline{toc}{section}{#3}{%
+\newcommand{\bmhBanner}[3][none]{{%
 	\centerline{\begin{tikzpicture}%
 		\node [
 			text width=1.5\paperwidth
@@ -301,17 +300,23 @@
 	\end{tikzpicture}}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}%
 }}
 
+% 1 = (optional) zlabel for section
+% 2 = PDF-TOC entry for section
+% 3 = section headline
 \newcommand{\bmhSection}[2][none]{%
 	\noindent
 	\parbox[c][1.5cm]{\columnwidth}{%
+		\phantomsection\addcontentsline{toc}{section}{#2}
 		\vspace{2.5mm}
 		\fffancy\color{primary}\fontsize{2.0em}{2.0em plus 0pt minus 0pt}\selectfont\textbf{\uppercase{#2}}
-	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
+	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}%
+	\noindent%
 }
 
 \newcommand{\bmhSubsection}[2][none]{% custom sections: centered smallcaps
 	\noindent\parbox{\columnwidth}{%
 		\bigskip
+		\phantomsection\addcontentsline{toc}{subsection}{#2}
 		\centerline{\color{primary}\fffancy\fontsize{12pt}{14pt plus 0pt minus 0pt}\selectfont\textbf{\textsc{{#2}}}}
 		\medskip
 	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
@@ -347,17 +352,17 @@
 
 \newcommand{\backgroundlayername}{Background}
 
-\newcommand{\twoPageHeader}[3][none]{
+\newcommand{\twoPageHeader}[2][none]{
 	\grenewcommand{\bgboxverticaltopheight}{20mm}
 	\grenewcommand{\bgboxtoptextonepage}{}
 	\grenewcommand{\bgboxtoptexttwopage}{\expandafter\MakeUppercase\expandafter{#2}}
-	\phantomsection\addcontentsline{toc}{section}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+	\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
 }
-\newcommand{\onePageHeader}[3][none]{
+\newcommand{\onePageHeader}[2][none]{
 	\grenewcommand{\bgboxverticaltopheight}{20mm}
 	\grenewcommand{\bgboxtoptextonepage}{\expandafter\MakeUppercase\expandafter{#2}}
 	\grenewcommand{\bgboxtoptexttwopage}{}
-	\phantomsection\addcontentsline{toc}{chapter}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+	\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
 }
 
 \newcommand{\backgroundHalfImage}[2]{

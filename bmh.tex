@@ -48,13 +48,15 @@
 
 % ### INNER COVER ##############################################################
 
+\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscCreditsToc}
 \bmhMiscCredits
 
 \newpage
 
 % ### INTRO ####################################################################
 
-\onePageHeader[lIntro]{\bmhMiscIntroHeadline}{\bmhMiscIntroToc}
+\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscIntroToc}
+\onePageHeader[lIntro]{\bmhMiscIntroHeadline}
 \begin{multicols}{2}\raggedbottom
 	\bmhMiscIntro
 \end{multicols}
@@ -65,32 +67,33 @@
 
 % ### BASIC ####################################################################
 
+\phantomsection\addcontentsline{toc}{chapter}{\bmhBasicToc}
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{1mm}
 \newpage
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{119mm}
 {\fffancy\color{white}\fontsize{56}{56}\selectfont
 	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhBasicChapter}
 }\newpage
 
-\twoPageHeader[lPreparation]{\bmhBasicHeadline}{\bmhMiscPreparationToc}
+\twoPageHeader[lPreparation]{\bmhBasicHeadline}
 \backgroundHalfImage{bmh/setup.pdf}{17cm}
 \begin{multicols}{2}
 	\bmhMiscPreparation
 \end{multicols}\newpage
 \grenewcommand{\bgboxinjectalways}{}
 
-\twoPageHeader[lHeroes]{\bmhBasicHeadline}{\bmhMiscCharactersToc}
+\twoPageHeader[lHeroes]{\bmhBasicHeadline}
 \begin{multicols*}{2}
 	\bmhMiscCharacters
 \end{multicols*}\newpage
 
-\twoPageHeader[lRulesBasic]{\bmhBasicHeadline}{\bmhBasicToc}
+\twoPageHeader[lRulesBasic]{\bmhBasicHeadline}
 \begin{multicols}{2}
 	\bmhBasic
 	\bmhBasicGM
@@ -101,73 +104,75 @@
 
 % ### EXPERT ###################################################################
 
+\phantomsection\addcontentsline{toc}{chapter}{\bmhExpertToc}
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{1mm}
 \newpage
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{119mm}
 {\fffancy\color{white}\fontsize{56}{56}\selectfont
 	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhExpertChapter}
 }\newpage
 
-\twoPageHeader[lRulesExpert]{\bmhExpertHeadline}{\bmhExpertToc}
+\twoPageHeader[lRulesExpert]{\bmhExpertHeadline}
 \begin{multicols}{2}
 	\bmhExpert
 \end{multicols}\newpage
 
-\onePageHeader[lHeroCleric]{\bmhHeroesClericHeadline}{\bmhHeroesClericToc}\zlabel{lPowers}
+\onePageHeader[lHeroCleric]{\bmhHeroesClericHeadline}\zlabel{lPowers}
 \begin{multicols*}{2}
 	\bmhHeroesCleric
 \end{multicols*}\newpage
 
-\onePageHeader[lHeroFigher]{\bmhHeroesFighterHeadline}{\bmhHeroesFighterToc}
+\onePageHeader[lHeroFigher]{\bmhHeroesFighterHeadline}
 \begin{multicols*}{2}
 	\bmhHeroesFighter
 \end{multicols*}\newpage
 
-\onePageHeader[lHeroWizard]{\bmhHeroesWizardHeadline}{\bmhHeroesWizardToc}
+\onePageHeader[lHeroWizard]{\bmhHeroesWizardHeadline}
 \begin{multicols*}{2}
 	\bmhHeroesWizard
 \end{multicols*}\newpage
 
-\onePageHeader[lHeroThief]{\bmhHeroesThiefHeadline}{\bmhHeroesThiefToc}
+\onePageHeader[lHeroThief]{\bmhHeroesThiefHeadline}
 \begin{multicols*}{2}
 	\bmhHeroesThief
 \end{multicols*}\newpage
 
-\onePageHeader[lHeroRanger]{\bmhHeroesRangerHeadline}{\bmhHeroesRangerToc}
+\onePageHeader[lHeroRanger]{\bmhHeroesRangerHeadline}
 \begin{multicols*}{2}
 	\bmhHeroesRanger
 \end{multicols*}\newpage
 
-\onePageHeader[lItems]{\bmhExpertItemsHeadline}{\bmhExpertItemsToc}
+\onePageHeader[lItems]{\bmhExpertItemsHeadline}
 \begin{multicols}{2}
 	\bmhExpertItems
 \end{multicols}\newpage
 
 % ### SCENARIOS ################################################################
 
+\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscMissionsToc}
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{1mm}
 \newpage
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 \vspace*{119mm}
 {\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscGMOnly}
+	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscMissions}
 }\newpage
 
 % ------------------------------------------------------------------------------
 \backgroundpagesmissions
 
-\twoPageHeader[lAI]{\bmhMissionIHeadline}{\bmhMissionIToc}
+\twoPageHeader[lAI]{\bmhMissionIHeadline}
 \zlabel{lMissions}
 \backgroundHalfImage{bmh/mission-1.pdf}{15cm}
 \begin{multicols}{2}
@@ -175,7 +180,7 @@
 \end{multicols}\newpage
 \grenewcommand{\bgboxinjectalways}{}
 
-\twoPageHeader[lAI]{\bmhMissionIIHeadline}{\bmhMissionIIToc}
+\twoPageHeader[lAI]{\bmhMissionIIHeadline}
 \backgroundHalfImage{bmh/mission-2.pdf}{18cm}
 \begin{multicols}{2}
 	\bmhMissionII
@@ -185,30 +190,50 @@
 % ### BESTIARY #################################################################
 
 \backgroundpages
-\twoPageHeader[lBestiary]{\bmhBestiaryHeadline}{\bmhBestiaryToc}
+\phantomsection\addcontentsline{toc}{chapter}
+\twoPageHeader[lBestiary]{\bmhBestiaryHeadline}
 \begin{multicols*}{2}
 	\bmhBestiary
 \end{multicols*}\newpage
 
-% ### CHANGELOG ################################################################
+% ### APPENDIX #################################################################
 
-\twoPageHeader{\bmhChangelogHeadline}{\bmhChangelogToc}
+\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscAppendixToc}
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}
+\vspace*{1mm}
+\newpage
+\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
+\thispagestyle{empty}
+\onePageHeader{}
+\vspace*{129mm}
+{\fffancy\color{white}\fontsize{56}{56}\selectfont
+	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscAppendixHeadline}
+}\newpage
+
+% --- CHANGELOG ----------------------------------------------------------------
+
+\phantomsection\addcontentsline{toc}{section}{\bmhChangelogToc}
+\twoPageHeader{\bmhChangelogHeadline}
 \begin{multicols}{2}
 	\bmhChangelog
 \end{multicols}\newpage
 
-% ### INDEX ####################################################################
+% --- INDEX --------------------------------------------------------------------
 
-\onePageHeader[lIndex]{Index}{Index}
+\phantomsection\addcontentsline{toc}{section}{\bmhMiscIndexToc}
+\onePageHeader[lIndex]{\bmhMiscIndexHeadline}
 \noindent\textit{Hinweis: Kursive Seitenzahlen beziehen sich auf Basis-Regeln und sind beim Spiel nach Experten-Regeln nicht von Belang.}
 
 \printindex
 
 \newpage
 
-% ### BACK MATTER ##############################################################
+% --- BACK MATTER --------------------------------------------------------------
 
-\onePageHeader[lSheets]{\bmhMiscCharSheets}{\bmhMiscCharSheetsToc}
+\phantomsection\addcontentsline{toc}{section}{\bmhMiscCharSheetsToc}
+\onePageHeader[lSheets]{\bmhMiscCharSheets}
 
 \centering\includegraphics[height=8.75cm]{\image{bmh/charsheet.pdf}}
 \hspace{2mm}
@@ -224,7 +249,7 @@
 
 \renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/backcover.pdf}}}
 \thispagestyle{empty}
-\onePageHeader{}{}
+\onePageHeader{}
 
 \vspace*{1mm}
 
