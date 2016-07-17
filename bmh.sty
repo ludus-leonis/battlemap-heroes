@@ -1,5 +1,5 @@
-\ProvidesFile{battles.sty}
-\ProvidesPackage{battles}
+\ProvidesFile{bmh.sty}
+\ProvidesPackage{bmh}
 
 % --- common packages --------------------------------------------------
 
@@ -14,6 +14,7 @@
 
 \DefineNamedColor{named}{primary}{cmyk}{0.75,0.68,0.67,0.90}   % blacker than black
 \DefineNamedColor{named}{secondary}{cmyk}{0.0,0.0,0.0,0.10}    % white
+\DefineNamedColor{named}{trueblack}{cmyk}{0.75,0.68,0.67,0.90} % blacker than black
 
 % --- custom latex commands --------------------------------------------
 
@@ -153,6 +154,7 @@
 	ItalicFont={NIPAJIN-Dingbats-Italic},
 	BoldFont={NIPAJIN-Dingbats-Bold}
 ]{NIPAJIN-Dingbats}
+\setmainfont{Rubik}
 
 \newcommand{\TN}{{\ffdings \textit{t}}}
 \newcommand{\HD}{{\ffdings \textbf{h}}}
@@ -178,6 +180,13 @@
 \newcommand{\nipajin}{\href{http://ludus-leonis.com/nipajin}{\makebox{NIP'AJIN}}}
 \newcommand{\ludusleonis}{\href{http://ludus-leonis.com/}{\makebox{LUDUS} \makebox{LEONIS}}}
 
+% custom math environment for better in-line simple formulars
+\def\bmhreplace#1#2#3{%
+ \def\tmp##1#2{##1#3\tmp}%
+   \tmp#1\stopbmhreplace#2\stopbmhreplace}
+\def\stopbmhreplace#1\stopbmhreplace{}
+\newcommand{\bmhmath}[1]{\makebox{\bmhreplace{#1}{ }{\,}}}
+
 % --- images & graphics ------------------------------------------------
 
 \usepackage{graphicx}
@@ -195,7 +204,7 @@
 
 \fancypagestyle{battles}{%
 	\fancyhf{}
-	\fancyhead[LE,RO]{\color{white}\fftext\textbf{\thepage}}
+	\fancyhead[LE,RO]{\color{white}\textbf{\thepage}}
 }
 \topmargin -15mm
 \headsep 9mm
@@ -280,8 +289,7 @@
 
 % --- headlines & captions -----------------------------------------------------
 
-\newcommand{\bmhBanner}[3][none]{%
-\phantomsection\addcontentsline{toc}{section}{#3}{%
+\newcommand{\bmhBanner}[3][none]{{%
 	\centerline{\begin{tikzpicture}%
 		\node [
 			text width=1.5\paperwidth
@@ -292,17 +300,23 @@
 	\end{tikzpicture}}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}%
 }}
 
+% 1 = (optional) zlabel for section
+% 2 = PDF-TOC entry for section
+% 3 = section headline
 \newcommand{\bmhSection}[2][none]{%
 	\noindent
 	\parbox[c][1.5cm]{\columnwidth}{%
+		\phantomsection\addcontentsline{toc}{section}{#2}
 		\vspace{2.5mm}
 		\fffancy\color{primary}\fontsize{2.0em}{2.0em plus 0pt minus 0pt}\selectfont\textbf{\uppercase{#2}}
-	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
+	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}%
+	\noindent%
 }
 
 \newcommand{\bmhSubsection}[2][none]{% custom sections: centered smallcaps
 	\noindent\parbox{\columnwidth}{%
 		\bigskip
+		\phantomsection\addcontentsline{toc}{subsection}{#2}
 		\centerline{\color{primary}\fffancy\fontsize{12pt}{14pt plus 0pt minus 0pt}\selectfont\textbf{\textsc{{#2}}}}
 		\medskip
 	}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}\noindent%
@@ -338,17 +352,17 @@
 
 \newcommand{\backgroundlayername}{Background}
 
-\newcommand{\twoPageHeader}[3][none]{
+\newcommand{\twoPageHeader}[2][none]{
 	\grenewcommand{\bgboxverticaltopheight}{20mm}
 	\grenewcommand{\bgboxtoptextonepage}{}
 	\grenewcommand{\bgboxtoptexttwopage}{\expandafter\MakeUppercase\expandafter{#2}}
-	\phantomsection\addcontentsline{toc}{section}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+	\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
 }
-\newcommand{\onePageHeader}[3][none]{
+\newcommand{\onePageHeader}[2][none]{
 	\grenewcommand{\bgboxverticaltopheight}{20mm}
 	\grenewcommand{\bgboxtoptextonepage}{\expandafter\MakeUppercase\expandafter{#2}}
 	\grenewcommand{\bgboxtoptexttwopage}{}
-	\phantomsection\addcontentsline{toc}{chapter}{#3}\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
+	\expandafter\ifstrequal\expandafter{#1}{none}{}{\zlabel{#1}}
 }
 
 \newcommand{\backgroundHalfImage}[2]{
@@ -527,9 +541,7 @@
 	\setlength\fboxsep{1mm}%
 	\setlength{\powercol}{\columnwidth}\addtolength{\powercol}{-2mm}%
 	\parbox{\columnwidth}{%
-	\fffancy
-	\parbox[t][1.2em]{\columnwidth}{\color{white}\textbf{#1\hfill#2}}
-	\fftext
+	\parbox[t][1.2em]{\columnwidth}{\fffancy\color{white}\textbf{#1\hfill#2}}
 	\begin{tikzpicture}\node [draw=white, fill=white, text width=\powercol, line width=0mm, decorate, rectangle, rounded corners, inner sep=1mm]{
 	\small
 	\parbox[t]{\columnwidth}{#3 \vfill}%
@@ -555,7 +567,16 @@
 			black, fill=white, draw=black, decorate, dashed, line width=0.75pt, inner sep=0.5em,
 			decoration={random steps, segment length=.5cm, amplitude=.15mm}
 	}]
-		\node[parchment] (1) at (0,0) {\parbox[t]{0.94\columnwidth}{\fontsize{8pt}{10pt}\fftext\selectfont\color{black}#1}};
+		\node[parchment] (1) at (0,0) {\parbox[t]{0.94\columnwidth}{\fontsize{8pt}{10pt}\selectfont\color{black}#1}};
+	\end{tikzpicture}%
+}}
+\newcommand{\exampleInverted}[1]{{%
+	\vspace{1.5mm}
+	\noindent\begin{tikzpicture}[parchment/.style={
+			white, fill=trueblack, draw=white, decorate, dashed, line width=0.75pt, inner sep=0.5em,
+			decoration={random steps, segment length=.5cm, amplitude=.15mm}
+	}]
+		\node[parchment] (1) at (0,0) {\parbox[t]{0.94\columnwidth}{\fontsize{8pt}{10pt}\selectfont\color{white}#1}};
 	\end{tikzpicture}%
 }}
 
