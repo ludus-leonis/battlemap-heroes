@@ -305,14 +305,59 @@
 			Von jeder Kategorie (Helm, Rüstung, Schild) darf jede Kreatur nur ein Stück tragen. Schilde erfordern eine freie Hand.
 
 		\bmhSubsection{Ausrüstung}
-			Die folgenden nützlichen Dinge können zwischen Missionen erstanden werden.
+			Die folgenden Gegenstände können in den Missionen gefunden und zwischen ihnen gekauft werden. Der angegebene Preis ist der Kaufpreis. Verkäufe bringen nur 75\% davon (abrunden).
 
-			\bmhTable{l c c X}{
-				\thead{Gegenstand} & \thead{Hände} & \thead{Preis} & \thead{Bemerkung} \\
-			}{
-				Fackel          &  1 &  1\gold & RW 4 \\
-				Lampe           &  1 & 10\gold & --   \\
-				Lampenöl        & -- &  1\gold & RW 6 \\
+			\power{Agilitätstrank}{25\gold}{
+				Du bist [agil] für 1W6 Runden.
+			}
+
+			\power{Fackel}{1\gold}{
+				Wird die Fackel angezündet, steigt die Helligkeit in allen Feldern bis RW~4 um einen Grad bis zum Ende der Mission. Danach ist die Fackel nutzlos.
+			}
+
+			\power{Gegengift}{50\gold}{
+				Du bist nicht mehr [vergiftet].
+			}
+
+			\power{Heiltrank}{25\gold}{
+				Dieser Trank stellt 2 LP wieder her.
+			}
+
+			\power{Konzentrationstrank}{25\gold}{
+				Du bist [konzentriert] für 1W6 Runden.
+			}
+
+			\power{Lampe}{10\gold}{
+				Wird die Lampe angezündet, steigt die Helligkeit in allen Feldern bis RW~6 um einen Grad. Pro Mission verbraucht sie Lampenöl im Wert von 1G.
+			}
+
+			\power{Nebelgranate, kleine}{25\gold}{
+				Wirf die Granate auf ein Feld, auf das du freie Sicht hast (RW~1--5). Es ist wird bis zum Beginn deiner nächsten Runde in Nebel gehüllt. Es gilt als schwieriges Gelände und blockiert jegliche Sicht.
+			}
+
+			\power{Nebelgranate, große}{50\gold}{
+				Wirf die Granate auf ein Feld, auf das du freie Sicht hast (RW~1--5). Diese Feld und alle benachbarten Felder, zu denen von dem Feld aus zumindest eingeschränkte Sicht besteht, sind bis zum Beginn deiner nächsten Runde in Nebel gehüllt. Sie gelten als schwieriges Gelände und blockieren jegliche Sicht.
+			}
+
+			\power{Schattentrank}{25\gold}{
+				Du wirst zum Schatten und kannst bis zum Beginn deiner nächsten Runde Felder durchqueren, in denen ein Feind steht.
+			}
+
+			\power{Schnelligkeitstrank}{25\gold}{
+				Du bist [schnell] für 1W6 Runden.
+			}
+
+			\power{Stärketrank}{25\gold}{
+				Du bist [stark] für 1W6 Runden.
+			}
+
+
+			\power{Werkzeug}{50\gold}{
+				Du darfst beim Entschärfen 1 Würfel extra benutzen.
+			}
+
+			\power{Wünschelrute}{50\gold}{
+				Du darfst beim Suchen 1 Würfel extra benutzen.
 			}
 
 	\bmhSection[lXP]{Erfahrung}
@@ -383,7 +428,7 @@
 			\item Durchschnittliche Kreaturen haben soviel LP wie ihre Stufe, zähe Kreaturen 1--2 mehr.
 		}
 
-	\newpage Platzhalter-Seite
+	% \newpage Platzhalter-Seite
 }
 
 \newcommand{\bmhExpertBoxLOS}{%
@@ -394,113 +439,6 @@
 	\hspace{1em}Die Sicht ist \keyword[Sicht, freie]{\color{white}frei}, wenn wenn von diesem Ausgangspunkt alle Linien zu allen Punkten der Grundfläche des Zieles weder durch Mauern, geschlossene Türen, undurchsichtige Hindernisse, andere Kreaturen oder maximal die Hälfte des Ziels verdeckendes Mobiliar verlaufen.
 
 	\hspace{1em}Die Sicht ist \keyword[eingeschränkt]{\color{white}eingeschränkt}, wenn weder die Kriterien für freie Sicht noch die für keine Sicht gelten.
-}
-
-\newcommand{\bmhExpertPowersHeadline}{Besondere Fähigkeiten}
-\newcommand{\bmhExpertPowersToc}{Besondere Fähigkeiten}
-\newcommand{\bmhExpertPowers}{%
-
-	\dropping{H}elden beherrschen besondere Fähigkeiten. Auf jeder Stufe dürfen sie eine der folgenden erlernen. Bei jeder Fähigkeit ist angegeben, welche Berufe sie erlernen können (Krieger=KR, Schütze=SH, Schurke=SR, Kleriker=KL, Magier=MA).
-
-	Fähigkeiten mit einem AP-Wert von Null müssen nicht als Aktion aktiviert werden, ihren Vorteil besitzt eine Kreatur permanent.
-
-	\power{Doppelschuss (AP3)}{KR/SH}{
-		Du darfst zwei Mal mit einer Armbrust oder einem Bogen schießen.
-	}
-
-	\power{Heilzauber (AP2)}{KL/MA}{
-		Du oder eine benachbarte Kreatur heilt 4 LP.
-	}
-
-	\power{Hinterhalt (AP3)}{SH/SR}{
-		Du darfst dich bewegen, angreifen, und nochmals bewegen.
-	}
-
-	\power{Rundumschlag (AP3)}{KR/SR}{
-		Attackiere alle Gegner in Reichweite 1 mit einer \say{ST vs. ??} Waffe.
-	}
-
-	\power{Schutzzauber (AP3)}{KL/MA}{
-		Du und eine Kreatur in Sicht verteidigt +1 bis zum Ende der Runde.
-	}
-
-	\power{Zielsicherheit (AP3)}{KL/MA/SH/SR}{
-		Kreaturen, auf die du schießt, erhalten keinen Bonuswürfel, wenn du nur eingeschränkte Sicht auf sie hast.
-	}
-
-	\power{gute Reflexe (AP0)}{SH/SR}{
-		Dein RE-Wert steigt permanent um 1.
-	}
-
-	\power{eiserner Wille (AP0)}{KL/KR/MA}{
-		Dein WI-Wert steigt permanent um 1.
-	}
-
-	\power{Zähigkeit (AP0)}{KL/KR}{
-		Dein AB-Wert steigt permanent um 1.
-	}
-
-	\power{Gegenschlag (AP1)}{KL/KR/MA/SH/SR}{
-		Wenn bis zum Beginn deines nächsten Zuges einem Gegner ein Angriff gegen dich misslingt, darfst du diesen sofort angreifen, wenn er in deiner Reichweite steht.
-	}
-
-	\power{Schnell (AP0)}{KL/KR/MA/SH/SR}{
-		Deine BEW-Wert steigt permanent um 1.
-	}
-
-}
-
-\newcommand{\bmhExpertItemsHeadline}{Besondere Gegenstände}
-\newcommand{\bmhExpertItemsToc}{Besondere Gegenstände}
-\newcommand{\bmhExpertItems}{%
-
-	\dropping{D}ie folgenden Gegenstände können in den Missionen gefunden und zwischen ihnen gekauft werden. Der angegebene Preis ist der Kaufpreis. Verkäufe bringen nur 75\% davon (abrunden).
-
-	\power{Agilitätstrank}{25\gold}{
-		Du bist [agil] für 1W6 Runden.
-	}
-
-	\power{Gegengift}{50\gold}{
-		Du bist nicht mehr [vergiftet].
-	}
-
-	\power{Heiltrank}{25\gold}{
-		Dieser Trank stellt 2 LP wieder her.
-	}
-
-	\power{Konzentrationstrank}{25\gold}{
-		Du bist [konzentriert] für 1W6 Runden.
-	}
-
-	\power{Nebelgranate, kleine}{25\gold}{
-		Wirf die Granate auf ein Feld, auf das du freie Sicht hast (RW~1--5). Es ist wird bis zum Beginn deiner nächsten Runde in Nebel gehüllt. Es gilt als schwieriges Gelände und blockiert jegliche Sicht.
-	}
-
-	\power{Nebelgranate, große}{50\gold}{
-		Wirf die Granate auf ein Feld, auf das du freie Sicht hast (RW~1--5). Diese Feld und alle benachbarten Felder, zu denen von dem Feld aus zumindest eingeschränkte Sicht besteht, sind bis zum Beginn deiner nächsten Runde in Nebel gehüllt. Sie gelten als schwieriges Gelände und blockieren jegliche Sicht.
-	}
-
-	\power{Schattentrank}{25\gold}{
-		Du wirst zum Schatten und kannst bis zum Beginn deiner nächsten Runde Felder durchqueren, in denen ein Feind steht.
-	}
-
-	\power{Schnelligkeitstrank}{25\gold}{
-		Du bist [schnell] für 1W6 Runden.
-	}
-
-	\power{Stärketrank}{25\gold}{
-		Du bist [stark] für 1W6 Runden.
-	}
-
-
-	\power{Werkzeug}{50\gold}{
-		Du darfst beim Entschärfen 1 Würfel extra benutzen.
-	}
-
-	\power{Wünschelrute}{50\gold}{
-		Du darfst beim Suchen 1 Würfel extra benutzen.
-	}
-
 }
 
 \newcommand{\bmhExpertBoxExpose}{%
