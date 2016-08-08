@@ -30,6 +30,7 @@
 \input{bestiary.tex}
 \input{mission-01.tex}
 \input{mission-02.tex}
+%\input{mission-03.tex}
 
 \begin{document}
 
@@ -170,20 +171,11 @@ Platzhalter-Seite \newpage
 % ------------------------------------------------------------------------------
 \backgroundpagesmissions
 
-\twoPageHeader[lAI]{\bmhMissionIHeadline}
-\zlabel{lMissions}
-\backgroundHalfImage{bmh/mission-1.pdf}{15cm}
-\begin{multicols}{2}
-	\bmhMissionI
-\end{multicols}\newpage
-\grenewcommand{\bgboxinjectalways}{}
+\mission{lAI}{\bmhMissionIHeadline}{bmh/mission-1.pdf}{15cm}{\bmhMissionI}
 
-\twoPageHeader[lAI]{\bmhMissionIIHeadline}
-\backgroundHalfImage{bmh/mission-2.pdf}{18cm}
-\begin{multicols}{2}
-	\bmhMissionII
-\end{multicols}\newpage
-\grenewcommand{\bgboxinjectalways}{}
+\mission{lAII}{\bmhMissionIIHeadline}{bmh/mission-2.pdf}{15cm}{\bmhMissionII}
+
+%\mission{lAIII}{\bmhMissionIIIHeadline}{bmh/mission-2.pdf}{15cm}{\bmhMissionIII}
 
 % ### BESTIARY #################################################################
 

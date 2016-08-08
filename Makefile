@@ -16,14 +16,7 @@ setup:
 	cd out; makeindex -s ../makeindex.sty -g ${PDF_NAME}-de-${VERSION_DE}.idx
 
 de: setup
-	ln -sf ../content.de/basic.tex out/basic.tex
-	ln -sf ../content.de/expert.tex out/expert.tex
-	ln -sf ../content.de/heroes.tex out/heroes.tex
-	ln -sf ../content.de/misc.tex out/misc.tex
-	ln -sf ../content.de/bestiary.tex out/bestiary.tex
-	ln -sf ../content.de/changelog.tex out/changelog.tex
-	ln -sf ../content.de/mission-01.tex out/mission-01.tex
-	ln -sf ../content.de/mission-02.tex out/mission-02.tex
+	cd out; ln -sf ../content.de/*.tex .
 	xelatex \
 		-output-driver="xdvipdfmx -V 5 -z 9" \
 		-jobname=${PDF_NAME}-de-${VERSION_DE} \

@@ -583,3 +583,12 @@
 \newcommand{\nbsp}{\,\,}
 
 \newcommand{\tag}[1]{[#1]}%🔖
+
+\newcommand{\mission}[5]{
+	\twoPageHeader[#1]{#2}
+	\backgroundHalfImage{#3}{#4}
+	\begin{multicols}{2}
+		#5
+	\end{multicols}\newpage
+	\grenewcommand{\bgboxinjectalways}{}
+}
