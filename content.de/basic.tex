@@ -24,7 +24,7 @@
 		\example{Beträgt dein Geschick 2 und sollst du \say{GE+2 auf die Probe stellen}, würfelst du \bmhmath{2 + 2 = 4} Würfel, bei einer \say{GE Probe} \bmhmath{2 + 0 = 2} Würfel und bei einer \say{GE-1 Probe} nur \bmhmath{2 - 1 = 1} Würfel.}
 
 	\bmhSection{Runden \& Züge}
-		Das Spiel wird in \keyword[Runde|basic]{Runden} abgehalten. Die Spieler kommen, beginnend links vom SL, im Uhrzeigersinn an die Reihe. Sie führen dann für jede ihrer Kreaturen einen Zug aus. Ein Spieler muss den Zug einer Kreatur abschließen, eher er mit einer weiteren Kreatur zieht und muss mit allen seinen Kreaturen ziehen -- oder auf deren Zug verzichten -- ehe der nächste Spieler an die Reihe kommt. Als Letzter einer Runde zieht der SL, danach endet die Runde.
+		Das Spiel wird in \keyword[Runde|basic]{Runden} abgehalten. Ihr kommt, beginnend links vom SL, im Uhrzeigersinn an die Reihe. Ihr führt dann für jede eurer Kreaturen einen Zug aus. Du musst den Zug einer Kreatur abschließen, eher du mit einer weiteren Kreatur ziehen darfst und musst mit allen deinen Kreaturen ziehen -- oder auf deren Zug verzichten -- ehe der nächste Spieler an die Reihe kommt. Als Letzter einer Runde zieht der SL, danach endet die Runde.
 
 	\backgroundFooterFig[7.9cm]{%
 		\begin{multicols}{2}\raggedbottom
@@ -32,49 +32,23 @@
 		\end{multicols}
 	}
 
-		Der \keyword[Zug|basic]{Zug} einer Kreatur besteht aus einer Folge von Aktionen. Ein Spieler hat dabei die Wahl, ob seine Kreatur~\ldots
+		Der \keyword[Zug|basic]{Zug} deiner Kreatur besteht aus einer Folge von Aktionen. Du hast dabei die Wahl, ob sie~\ldots
 
 		\bmhList{
-			\item sich bewegt oder etwas benutzt, dann
-			\item angreift oder sucht
-		}
-
-		{\centering\ldots~oder~\ldots}
-
-		\bmhList{
-			\item angreift oder sucht, dann
-			\item sich bewegt oder etwas benutzt
-		}
-
-		{\centering\ldots~oder~\ldots}
-
-		\bmhList{
-			\item eine Fähigkeit einsetzt
-		}
-
-		{\centering\ldots~oder~\ldots}
-
-		\bmhList{
-			\item sich bewegt oder etwas benutzt, dann
-			\item sich nochmals bewegt oder etwas benutzt, dann
-			\item sich nochmals bewegt oder etwas benutzt.
+			\item eine kleine und dann eine große Aktion setzt, oder
+			\item eine große und dann eine kleine Aktion setzt, oder
+			\item drei kleine Aktionen setzt.
 		}
 
 		\noindent
-		Ein Spieler muss nicht alle Aktionen zu Beginn des Zuges ansagen, sondern kann den Ausgang einer Aktion abwarten, ehe er weitere Aktionen plant.
-
-	\backgroundFooterFig[6.9cm]{%
-		\begin{multicols}{2}\raggedbottom
-			\color{white}\bmhBasicBoxDistance%
-		\end{multicols}
-	}
+		In letzterem Fall darfst du die selbe Aktion auch mehrfach setzen. Du musst auch nicht alle Aktionen zu Beginn des Zuges ansagen, sondern kannst den Ausgang einer Aktion abwarten, ehe du weitere Aktionen planst. Wenn es dir sinnvoll erscheint, darfst du Aktionen auch verfallen lassen.
 
 	\bmhSection{Aktionen}
 
 		\noindent
-		Dieser Abschnitt erklärt dir, was dein Held mit den \keyword[Aktion|basic]{Aktionen} machen kann.
+		Dieser Abschnitt erklärt dir, welche kleinen und großen \keyword[Aktion|basic]{Aktionen} dein Held setzen kann.
 
-		\bmhSubsection{Bewegen}
+		\bmhSubsection{Bewegen (klein)}
 			Mit einer Bewegung darf deine Kreatur bis zu so viele Felder horizontal, vertikal oder diagonal weit gehen, wie ihr BEW-Wert beträgt. Dabei darf sie natürlich nicht durch geschlossene Türen oder Mauern gehen.
 
 			Manche Felder werden durch Geröll, Treppen, Tische oder andere Hindernisse zu \keyword[Gelände!schwierig|basic]{schwierigem Gelände} und werden deshalb vom SL mit einem kleinen \say{x} am Spielplan markiert. Sie zu betreten kostet 2 BEW. Ein Feld, in dem eine andere Kreatur steht, gilt ebenso als schwieriges Gelände. Es zu durchschreiten ist allerdings nur mit ihrer Zustimmung erlaubt.
@@ -83,7 +57,7 @@
 
 			Deine Kreatur darf ihre Bewegung nicht auf einem Feld beenden, auf dem bereits eine andere steht.
 
-		\bmhSubsection{Benutzen}
+		\bmhSubsection{Benutzen (klein)}
 			Diese Aktion erlaubt dir, etwas aus deiner Ausrüstung oder deinem Umfeld zu \keyword{benutzen}. Du kannst damit:
 
 			\bmhList{
@@ -94,7 +68,13 @@
 				\item etwas in deinem oder einem benachbarten Feld aufheben oder ablegen
 			}
 
-		\bmhSubsection{Angreifen}
+	\backgroundFooterFig[6.9cm]{%
+		\begin{multicols}{2}\raggedbottom
+			\color{white}\bmhBasicBoxDistance%
+		\end{multicols}
+	}
+
+		\bmhSubsection{Angreifen (groß)}
 			Nur wenn du Sicht zum Gegner hast und er in der Reichweite deiner Waffe steht, kannst du ihn angreifen. Egal ob Schwert oder Zauberstab, alle Waffen funktionieren nach folgendem Prinzip.
 
 			Bestimme gemäß dem Kasten \say{Distanz} die Entfernung zu deinem Gegner. Nur wenn deine Waffe eine passende \keyword[Reichweite|basic]{Reichweite} (RW) hat, kannst du den Angriff durchführen.
@@ -107,10 +87,10 @@
 
 			Mach nun eine Probe auf das Angriffs-Attribut. Hast du nur eingeschränkte Sicht, musst du mit einem Würfel weniger angreifen. Gib dann dem Gegner die Gelegenheit, eine Probe auf sein Verteidi\-gungs-Attribut zu machen. Für jeden Erfolg, den der Angriff mehr als die Verteidigung hat, verliert der Angegriffene einen \keyword[Lebenspunkte|basic]{Lebenspunkt}. Kreaturen, deren Lebenspunkte auf 0 fallen, sind \keyword[tot|basic]{tot} und werden vom Spielplan genommen. Bei Gegnern mit vielen Lebenspunkten führt ihr am Rand der Battlemap Buch, wie viele diese noch besitzen.
 
-		\bmhSubsection{Fähigkeiten einsetzen}
-			Jeder Held darf ein Mal pro Mission seine \keyword[Fähigkeit!einsetzen|basic]{besondere Fähigkeit einsetzen}. Dies nimmt einen ganzen Zug in Anspruch.
+		\bmhSubsection{Fähigkeiten einsetzen (groß)}
+			Dein Held darf ein Mal pro Mission seine \keyword[Fähigkeit!einsetzen|basic]{besondere Fähigkeit einsetzen}. Was dann passiert, steht auf seinem Heldenbogen.
 
-		\bmhSubsection{Suchen}
+		\bmhSubsection{Suchen (groß)}
 			Dein Held kann jederzeit nach Verborgenem \keyword[suchen|basic]{suchen}. Mach eine IN-Probe. Hast du mindestens einen Erfolg, muss dir der SL alle Schätze, Fallen oder Geheimnisse nennen, die sich auf deinem Feld und jenen der den acht direkt angrenzenden Feldern befinden, zu denen du Sicht hast. Schätze darfst du dir sofort behalten, kannst sie aber auch für andere Helden liegen lassen. Diese müssen sie dann nur mehr aufheben (siehe \say{Benutzen}).
 
 			Suchen birgt aber das Risiko, dass eine \keyword[streunende Kreatur|basic]{streunende Kreatur}\index{Kreatur!streunend} auf dich aufmerksam wird. Sollte auf der Karte des SL in deinem Suchradius eine versteckte Kreatur eingezeichnet sein, wird diese aufgedeckt -- egal, ob die Suchen-Probe gelungen ist oder nicht. Im Missionstext ist angegeben, welche Kreatur das ist. Der SL stellt sie auf ein dir benachbartes Feld (oder ein möglichst nahes, sollten alle Felder belegt sein).
