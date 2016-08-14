@@ -2,12 +2,23 @@
 \newcommand{\weapons}{{\ffdings \textbf{f}}}
 \newcommand{\tactics}{{\ffdings \textbf{C}}}
 \newcommand{\powers}{{\ffdings \textbf{e}}}
+\newcommand{\treasure}{{\ffdings \textbf{D}}}
 
 \newcommand{\statblock}[9]{
 	ST~#1, AB~#2, GE~#3, RE~#4, IN~#5, WI~#6\\
 	BEW~#7, LP~#8, AP~#9
 }
 \newcommand{\creature}[8]{
+	\vspace*{1em}
+	{
+
+		\centering
+		\raisebox{0.25in}{\includegraphics[width=0.5in]{\image{bmh/#8}}}
+		\includegraphics[width=1in]{\image{bmh/#8}}
+		\raisebox{0.25in}{\includegraphics[width=0.5in]{\image{bmh/#8}}}
+
+	}
+
 	\bmhSection{#1}
 		\emph{#5}
 
@@ -15,12 +26,7 @@
 			\item[\stats] Stufe #2 \\ #3
 			\item[\weapons] #4
 			\item[\tactics] #6
-		}
-
-		{
-
-			\centering\includegraphics[width=1in]{\image{bmh/#7}}
-
+			\item[\treasure] #7
 		}
 
 	\vfill\vspace*{0mm}\columnbreak
@@ -39,7 +45,10 @@
 		\item \keyword{Waffen}\nbsp\weapons~und sonstige Ausrüstung.
 		\item Etwaige besondere \keyword{Fähigkeiten}\nbsp\powers.
 		\item Die übliche \keyword{Taktik}\nbsp\tactics~der Kreatur.
+		\item Die \keyword{Beute}\nbsp\treasure, die eine besiegte Kreatur hinterlässt. Handelt es sich um Goldmünzen, ist dies kein fixer Betrag, sondern die Zahl der Würfel, die der SL dafür würfelt: Die Summe der Augen entspricht der Zahl der Münzen. Sind Ausrüstungsgegenstände nicht als Beute gelistet (z.B. mindere Waffen), haben sie für die Helden keinen Wert.
 	}
+
+	\example{Die Beute eines Goblins ist mit \say{1W} angegeben. Der SL würfelt daher einen Würfel. Es fällt eine vier. Damit hat der Goblin vier Goldmünzen bei sich.}
 
 	\vfill\vspace*{0mm}\columnbreak
 
@@ -51,6 +60,8 @@
 		Diese kleinen, flinken und fiesen Humanoiden haben grüne, ledrige Haut, spitze Zähne und einen buckeligen Rücken.
 	}{
 		Goblins versuchen, ständig in Bewegung zu bleiben und jede Runde jemand anderen zu attackieren.
+	}{
+		1W Goldmünzen
 	}{creature_goblin.pdf}
 
 	\creature{Ork}{II}{
@@ -61,6 +72,8 @@
 		Stämmige, wilde Humanoide -- zum Kämpfen geboren!
 	}{
 		Orks sind militärisch ausgebildet und versuchen, ihre Gegner zu Zweit einzukreisen, um sie am Rückzug zu hindern.
+	}{
+		1 Schwert
 	}{creature_orc.pdf}
 
 	\creature{Ratte, Riesen-}{I}{
@@ -71,6 +84,8 @@
 		Riesenratten erreichen die Größe eines Hundes, haben braunes, fettiges Fell und einen langen, grauen Schwanz.
 	}{
 		Auf Beutesuche fallen Retten alle Lebewesen an, die sie für Futter halten. Kreaturen, die ihren Nestern zu nahe kommen, sind dabei ihr erstes Ziel.
+	}{
+		keine Beute
 	}{creature_rat.pdf}
 
 	\creature{Skelett}{I}{
@@ -81,6 +96,8 @@
 		Diese flinken, klapprigen, weißgelben Gebeine wurden durch Nekromantie zu untotem Leben erweckt.
 	}{
 		Skelette greifen stets den ihnen am nächsten stehenden Lebenden an. Sie kratzen und schlagen, bis sie zerstört werden.
+	}{
+		keine Beute
 	}{creature_skeleton.pdf}
 
 	\creature{Spinne, Riesen-}{II}{
@@ -93,6 +110,8 @@
 		Der schwarze, pelzige, zweigliedrige Körper der Riesenspinne wird von acht 1-Meter-langen Beinen getragen. Von ihren Scheren tropft Flüssigkeit.
 	}{
 		Riesenspinnen versuchen erst, einen Gegner in ein Netze zu hüllen, und dann zu beißen.
+	}{
+		keine Beute
 	}{creature_spider.pdf}
 
 	\creature{Wächterstatue}{I}{
@@ -103,6 +122,8 @@
 		Diese Statuen aus grauem Granit dekorieren regungslos Räume und Gänge, bis sie durch einen Auslöser erweckt werden.
 	}{
 		Steinerne Wächter müssen warten, bis sie durch eine Falle erweckt werden. Bis dahin sind sie unverwundbar. Dann versuchen sie, die auslösende Kreatur und alle, die während dessen angreifen, zu vernichten. War dies erfolgreich, kehren sie zu ihrem Platz zurück und erstarren, die auslösende Falle reaktiviert sich.
+	}{
+		keine Beute
 	}{creature_statue.pdf}
 
 	\creature{Wiederkehrer}{II}{
@@ -114,6 +135,8 @@
 		Diese Seele eines Verstorbenen wurde aus ihrer ewigen Ruhe gerissen. Als geisterhafte, schwebende Erscheinungen rächt sie sich an allen Lebenden. Wiederkehrer sind bekannt für ihre nekromantischen Kräfte und können andere Tote wiedererwecken.
 	}{
 		Solange befreundete Kreaturen anwesend sind, setzen Wiederkehrer ihren Schrei ein, um ihnen einen Vorteil zu verschaffen.
+	}{
+		keine Beute
 	}{creature_wraith.pdf}
 
 	\creature{Zombie}{I}{
@@ -124,6 +147,8 @@
 		Diese kräftigen aber trägen Kreaturen sind nekromatisch wiederbelebte Tote. Sie gehorchen ihrem Erwecker willenlos.
 	}{
 		Zombies greifen stets die ihrem Meister am nächsten stehende Kreatur an oder versuchen, an diese heran zu kommen.
+	}{
+		keine Beute
 	}{creature_zombie.pdf}
 
 	\newpage \vspace*{1cm} \newpage Hier fehlen noch Kreaturen.
