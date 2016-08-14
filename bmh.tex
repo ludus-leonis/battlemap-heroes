@@ -69,19 +69,7 @@
 
 % ### BASIC ####################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhBasicToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhBasicChapter}
-}\newpage
+\chapterPage{\bmhBasicToc}{\bmhBasicChapter}
 
 \twoPageHeader[lPreparation]{\bmhBasicHeadline}
 \backgroundHalfImage{bmh/setup.pdf}{17cm}
@@ -106,19 +94,7 @@
 
 % ### EXPERT ###################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhExpertToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhExpertChapter}
-}\newpage
+\chapterPage{\bmhExpertToc}{\bmhExpertChapter}
 
 \twoPageHeader[lRulesExpert]{\bmhExpertHeadline}
 \begin{multicols}{2}
@@ -155,19 +131,7 @@ Platzhalter-Seite \newpage
 
 % ### SCENARIOS ################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscMissionsToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscMissions}
-}\newpage
+\chapterPage{\bmhMiscMissionsToc}{\bmhMiscMissions}
 
 % ------------------------------------------------------------------------------
 \backgroundpagesmissions
@@ -189,19 +153,7 @@ Platzhalter-Seite \newpage
 
 % ### APPENDIX #################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscAppendixToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{129mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscAppendixHeadline}
-}\newpage
+\chapterPage{\bmhMiscAppendixToc}{\vspace*{10mm}\bmhMiscAppendixHeadline}
 
 % --- CHANGELOG ----------------------------------------------------------------
 
