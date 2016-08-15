@@ -52,7 +52,7 @@
 		\noindent
 		Sind Proben \keyword{erleichtert}, \zB~\say{GE+2}, oder \keyword{erschwert}, \zB~\say{IN-1}, werden entsprechend mehr oder weniger Würfel benutzt. Sollten nach Abzügen keine Würfel übrig bleiben, hat die Probe automatisch 0 Erfolge.
 
-	\backgroundFooterFig[6.2cm]{%
+	\backgroundFooterFig[7.6cm]{%
 		\begin{multicols}{2}\raggedbottom
 			\color{white}\bmhExpertBoxLOS%
 		\end{multicols}
@@ -434,13 +434,15 @@
 }
 
 \newcommand{\bmhExpertBoxLOS}{%
-	Um zu bestimmen, ob eine Kreatur \keyword[Sicht]{\color{white}SICHT} zu einem Feld hat, nennt ihr Spieler einen beliebigen Ausgangspunkt in ihrer Grundfläche.
+	Um die \keyword[Sicht]{\color{white}SICHT} von einer Kreatur zu einer anderen zu bestimmen, wird zwischen den Zentren ihrer Grundflächen eine imaginäre Linie gezogen.
 
-	\hspace{1em}Es besteht \keyword[Sicht, keine]{\color{white}keine Sicht}, wenn von diesem Ausgangspunkt alle Linien zu allen Punkten der Grundfläche des Zieles durch Mauern, geschlossene Türen oder andere, undurchsichtige Hindernisse, wie \zB~dichter Nebel, führt.
+	\hspace{1em}Es besteht \keyword[Sicht, keine]{\color{white}keine Sicht}, wenn die Linie Kanten von Mauern, geschlossenen Türen oder von Feldern mit undurchsichtigen Eigenschaften durchquert, etwa dichtem Nebel.
 
-	\hspace{1em}Die Sicht ist \keyword[Sicht, freie]{\color{white}frei}, wenn wenn von diesem Ausgangspunkt alle Linien zu allen Punkten der Grundfläche des Zieles weder durch Mauern, geschlossene Türen, undurchsichtige Hindernisse, andere Kreaturen oder maximal die Hälfte des Ziels verdeckendes Mobiliar verlaufen.
+	\hspace{1em}Es besteht \keyword[Sicht, freie]{\color{white}freie Sicht}, wenn die Linie keine Kanten oder Ecken derartiger Hindernisse durchquert \textit{oder auch nur streift}, aber auch nicht jene anderer Kreaturen oder mehr als 50\% der Sicht verdeckendem Mobiliar.
 
-	\hspace{1em}Die Sicht ist \keyword[eingeschränkt]{\color{white}eingeschränkt}, wenn weder die Kriterien für freie Sicht noch die für keine Sicht gelten.
+	\hspace{1em}Es besteht \keyword[Sicht, eingeschränkt]{\color{white}eingeschränkte Sicht}, wenn weder die Kriterien für keine Sicht noch die für freie Sicht gelten.
+
+	\hspace{1em}Es werden stets die Ecken oder Kanten des Rasters der Battlemap zu Rate gezogen, nicht etwaige Ungenauigkeiten in der Zeichnung. Türen nehmen dabei die ganze Breite ihrer Kante ein: sie gelten von Ecke zu Ecke als offen oder geschlossen. Kreaturen oder Möbelstücke füllen ebenso das ganze Feld aus.
 }
 
 \newcommand{\bmhExpertBoxExpose}{%
