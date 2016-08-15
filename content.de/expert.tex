@@ -6,7 +6,7 @@
 	\dropping{D}ieses Kapitel enthält die Experten-Regeln von \bmh. Ihr könnt jederzeit von den Basis-Regeln umsteigen. Der folgende Text setzt aber nicht voraus, dass ihr diese gelesen habt, sondern wiederholt alle nötigen Regeln.
 
 	\bmhSection{Spielplan}
-		Eine \keyword{Battlemap} ist ein roll- oder faltbarer Spielplan, der mit trocken abwischbaren Stiften beschriftet werden kann. Auf diesem Plan ist ein quadratisches Raster aus \keyword[Feld]{Feldern} vorgedruckt.
+		Eine \keyword{Battlemap} ist ein roll- oder faltbarer Spielplan, der mit trocken abwischbaren Stiften beschriftet werden kann. Auf diesem Plan ist ein quadratisches Raster aus zollgroßen \keyword[Feld]{Feldern} vorgedruckt. Im Laufe des Spiels wird auf diesem Plan ein Gemäuer im Maßstab von 1:40 bis 1:60 eingezeichnet werden. Jedes Feld hat somit eine Seitenlänge von etwa \makebox{1 -- 1,5} Meter.
 
 		Die vier Linien, die jedes Feld umschließen, werden \keyword[Kante]{Kanten} genannt. Die Punkte, an denen vier Kanten zusammenlaufen, heißen \keyword{Ecken}. Kanten und Ecken sind imaginäre Hilfsmittel und nehmen keinen eigenen Platz am Spielfeld ein: Jeder Punkt einer Kante gehört zu beiden Feldern. Ebenso gehört jede Ecke zu allen vier dort zusammenstoßenden Feldern.
 
@@ -45,9 +45,9 @@
 	\bmhSection{Attribute \& Proben}
 		Die Spielwerte der Kreaturen werden \keyword[Attribut]{Attribute} genannt. Deren gibt es: \keyword{Stärke}\index{ST} (ST), \keyword{Abwehr}\index{AB} (AB), \keyword{Geschick}\index{GE} (GE), \keyword{Reflexe}\index{RE} (RE), \keyword{Intelligenz}\index{IN} (IN) und \keyword{Willenskraft}\index{WI} (WI).
 
-		Ist eine Kreatur aufgefordert, ein Attribut auf die \keyword{Probe} zu stellen, würfelt ihr Spieler entsprechend viele Würfel. Es werden jene gezählt, die gerade Nummern aufweisen. So viele \keyword[Erfolg]{Erfolge} hat die Probe.
+		Ist eine Kreatur aufgefordert, ein Attribut auf die \keyword{Probe} zu stellen, würfelt ihr Spieler entsprechend viele Würfel. Es wird die Anzahl jener gezählt, die gerade Nummern aufweisen. So viele \keyword[Erfolg]{Erfolge} hat die Probe.
 
-		\example{Hat eine Kreatur Stärke~3 und ihr Spieler würfelt 2, 1 und 6. Die 2 und 6 zählen als zwei Erfolge.}
+		\example{Hat eine Kreatur Stärke~3 und ihr Spieler würfelt 4, 1 und 6. Die 4 und 6 zählen als zwei Erfolge.}
 
 		\noindent
 		Sind Proben \keyword{erleichtert}, \zB~\say{GE+2}, oder \keyword{erschwert}, \zB~\say{IN-1}, werden entsprechend mehr oder weniger Würfel benutzt. Sollten nach Abzügen keine Würfel übrig bleiben, hat die Probe automatisch 0 Erfolge.
@@ -71,7 +71,7 @@
 		\example{Aus Sicht der Helden bedeutet das, dass sich Veteranen aus Rücksicht gegenüber Neulingen etwas zurückhalten und sich Neulinge dafür besonders anstrengen, mit den Veteranen Schritt zu halten.}
 
 	\bmhSection{Runden \& Züge}
-		Das Spiel wird in \keyword[Runden]{Runden} abgehalten. Die Mitspieler kommen im Uhrzeigersinn, beginnend links vom SL, an die Reihe und führen für jede ihrer Kreaturen einen Zug aus. Der SL zieht als letzter, danach endet die Runde. Ein Mitspieler muss den Zug einer Kreatur abschließen, ehe mit einer weiteren Kreatur gezogen wird. Ein Mitspieler muss mit allen seinen Kreaturen ziehen -- oder auf deren Zug verzichten -- ehe der nächste Mitspieler an die Reihe kommt.
+		Das Spiel wird in \keyword[Runden]{Runden} abgehalten. Jede Runde steht dabei für 30 Sekunden, die in der Spielwelt vergehen. Die Mitspieler kommen im Uhrzeigersinn, beginnend links vom SL, an die Reihe und führen für jede ihrer Kreaturen einen Zug aus. Der SL zieht als letzter, danach endet die Runde. Ein Mitspieler muss den Zug einer Kreatur abschließen, ehe mit einer weiteren Kreatur gezogen wird. Ein Mitspieler muss mit allen seinen Kreaturen ziehen -- oder auf deren Zug verzichten -- ehe der nächste Mitspieler an die Reihe kommt.
 
 		Der \keyword[Zug]{Zug} einer Kreatur besteht aus einer Folge von Aktionen, die dessen Spieler bestimmt und durchführt. Die Kreatur erhält dazu so viele \keyword{Aktionspunkte}, wie ihr AP-Wert beträgt.
 
@@ -161,7 +161,7 @@
 			Der Angreifer hat die Wahl, ob er ST oder GE auf die Probe stellt, der Gegner darf zwischen AB oder RE wählen. Für jeden nicht abgewehrten Erfolg erhält der Angreifer 1 BEW. Diese darf der Angreifer ausgeben, um den Gegner zu den regulären Regeln zu bewegen oder selbst in ein dadurch frei werdendes Feld nachzurücken. Angreifer und Gegner können auch die Plätze tauschen, wenn genügend BEW für beide Bewegungen gleichzeitig vorhanden sind.
 
 		\bmhSubsection{Suchen -- 2AP}
-			Ein Held kann jederzeit nach Verborgenem \keyword{suchen}. Dazu legt sein Spieler einen Suchradius fest: ein, zwei oder drei Felder. Durchsucht wird das Feld, auf dem der Held steht, und alle Felder, die bis zu dieser Distanz in Sicht sind. Ob die Suche gelingt, entscheidet eine IN-Probe:
+			Ein Held kann jederzeit nach Verborgenem \keyword{suchen}. Dazu legt sein Spieler einen Suchradius fest: ein, zwei oder drei Felder. Durchsucht wird das Feld, auf dem der Held steht, und alle Felder, die bis zu dieser Distanz in Sicht sind. Ob die Suche gelingt, entscheidet eine IN-Probe.
 
 			\bmhTable{X c}{
 				\thead{Suchradius} & \thead{nötige Erfolge} \\
@@ -179,13 +179,11 @@
 	\bmhSection{Gegenangriffe}
 		Kreaturen mit einer ST-Waffen bedrohen automatisch alle anderen Kreaturen in deren Reichweite, zu denen sie zumindest eingeschränkte Sicht haben. Löst eine bedrohte Kreatur eine der folgenden Ereignisse aus, erhält jede bedrohende Kreatur die Möglichkeit zum \keyword{Gegenangriff}:
 
-		\bmhTable{X}{
-			\thead{Ereignis im bedrohten Feld} \\
-		}{
-			Eine Kreatur gibt BEW aus. \\
-			Eine Kreatur setzt die Aktion \say{Benutzen}. \\
-			Eine Kreatur setzt die Aktion \say{Falle entschärfen}. \\
-			Eine Kreatur setzt die Aktion \say{Fähigkeit einsetzen}. \\
+		\bmhList{
+			\item Eine Kreatur gibt BEW aus.
+			\item Eine Kreatur setzt die Aktion \say{Benutzen}.
+			\item Eine Kreatur setzt die Aktion \say{Falle entschärfen}.
+			\item Eine Kreatur setzt die Aktion \say{Fähigkeit einsetzen}.
 		}
 
 		\noindent
@@ -204,6 +202,10 @@
 			\tag{agil}         & GE+1, RE+1 \\
 			\tag{blind}        & AB-1, RE-1, WI-1, keine Angriffe, kein Aufdecken \\
 			\tag{gefangen}     & darf keine BEW ausgeben \\
+		}
+		\bmhTable{l X}{
+		\thead{Zustand} & \thead{Auswirkung}\\
+		}{
 			\tag{gehemmt}      & ST-1, GE-1, IN-1 \\
 			\tag{getarnt}      & bestenfalls eingeschränkte Sicht \\
 			\tag{hilflos}      & alle Proben haben 0 Erfolge \\
@@ -215,10 +217,6 @@
 			\tag{stark}        & ST+1, AB+1 \\
 			\tag{träge}        & GE-1, RE-1 \\
 			\tag{unsichtbar}   & kann nicht angegriffen werden, kann Feinde passieren \\
-		}
-		\bmhTable{l X}{
-		\thead{Zustand} & \thead{Auswirkung}\\
-		}{
 			\tag{verflucht}    & verliert einmalig 1 LP am Ende des nächsten Zuges \\
 			\tag{vergiftet}    & verliert 1 LP am Ende jedes Zuges \\
 			\tag{verwirrt}     & IN-1, WI-1 \\
@@ -244,15 +242,6 @@
 
 	\bmhSection{Tote Kreaturen}
 		Sinken die LP einer Kreatur auf 0, ist sie tot und wird vom Spielplan genommen. Die ehemalige Grundfläche der Kreatur ist nun schwieriges Gelände. Die Ausrüstung und Beute der Kreatur liegt nun ebenfalls auf dem Feld und kann von anderen Kreaturen aufgehoben werden.
-
-	\bmhSection{Riesige Kreaturen}
-		Kreaturen, die eine 2×2 Felder große Grundfläche belegen, werden als \keyword{riesig} bezeichnet. Für sie gelten folgende zusätzliche Regeln.
-
-		\keyword[*]{Bewegung:} Riesige Kreaturen bewegen sich, in dem sie für 1 BEW das Zentrum ihrer Grundfläche -- eine Ecke -- auf eine der Ecken am Rand ihrer Grundfläche verschieben. Dadurch nehmen sie zwei, bei diagonaler Bewegung auch drei neue Felder ein. Am Ende ihres Zuges dürfen sie ihre Grundfläche nicht mit anderen Kreaturen teilen. Riesige Kreaturen kostet schwieriges Gelände keine zusätzlichen BEW.
-
-		\keyword[*]{Platzbedarf}: Riesige Kreaturen können nicht durch 1-Feld-große Öffnungen schreiten oder gezwungen werden. Sie können ebenso nicht in derartig kleine Löcher fallen.
-
-		\keyword[*]{Reichweite:} Riesige Kreaturen können die Reichweite jeder Waffe, die sie benutzen, um 1 erweitern.
 
 	\bmhSection[lEquipment]{Geld \& Ausrüstung}
 		\bmh~bietet eine Reihe von Gegenständen, die Überleben und Erfolg von Helden sichern können. Sie können in den Missionen gefunden oder zwischen diesen ge- und verkauft werden. Die Währung ist \keyword{G}, \say{tschi} ausgesprochen. Die in diesem Abschnitt angegebenen Preise sind die Kaufpreise. Verkauft wird stets um 75\% des Listpreises (abgerundet). Helden und ihre Freunde dürfen Gegenstände auch untereinander tauschen.
@@ -364,6 +353,15 @@
 				Du darfst beim Suchen 1 Würfel extra benutzen.
 			}
 
+	\bmhSection{Riesige Kreaturen}
+		Kreaturen, die eine 2×2 Felder große Grundfläche belegen, werden als \keyword{riesig} bezeichnet. Für sie gelten folgende zusätzliche Regeln.
+
+		\keyword[*]{Bewegung:} Riesige Kreaturen bewegen sich, in dem sie für 1 BEW das Zentrum ihrer Grundfläche -- eine Ecke -- auf eine der Ecken am Rand ihrer Grundfläche verschieben. Dadurch nehmen sie zwei, bei diagonaler Bewegung auch drei neue Felder ein. Am Ende ihres Zuges dürfen sie ihre Grundfläche nicht mit anderen Kreaturen teilen. Riesige Kreaturen kostet schwieriges Gelände keine zusätzlichen BEW.
+
+		\keyword[*]{Platzbedarf}: Riesige Kreaturen können nicht durch 1-Feld-große Öffnungen schreiten oder gezwungen werden. Sie können ebenso nicht in derartig kleine Löcher fallen.
+
+		\keyword[*]{Reichweite:} Riesige Kreaturen können die Reichweite jeder Waffe, die sie benutzen, um 1 erweitern.
+
 	\bmhSection[lXP]{Erfahrung}
 		Helden, die an einer erfolgreichen Mission teilgenommen haben, erhalten \keyword{Erfahrungspunkte} (EP), und zwar so viele, wie die Stufe der Mission betrug. Haben Helden genügend EP gesammelt, steigen sie eine Stufe auf:
 
@@ -392,7 +390,6 @@
 			\noindent
 			Es empfiehlt sich, ab der 2. Stufe auf die größeren Heldenbögen zu wechseln.
 
-	\columnbreak
 	\bmhSection[lGM]{Spielleiten}
 
 	\bmhSubsection{Fallen}
@@ -416,7 +413,7 @@
 			\item Die LP-Summe aller Gegner sollte etwa 15 + Missionstufe*5 betragen.
 			\item Missionen müssen mit 3 und 4 Helden lösbar sein.
 			\item Jede Mission sollte Schätze oder Ausrüstung im Wert von 200x Missionstufe enthalten. Darunter vorzugsweise eine Rüstung oder Waffe, die einen Bonus in Höhe der Missionsstufe auf ein Attribut gibt.
-			\item Riesige Kreaturen dürfen erst ab Missionsstufe 2 auftauchen.
+			\item Riesige Kreaturen und Schwärme dürfen erst ab Missionsstufe 2 auftauchen.
 			\item Kreaturen einer Missionsstufe stellen die Mehrheit der normalen Gegner, Kreaturen der Missionsstufe+1 sind ihre Anführer.
 		}
 
@@ -424,12 +421,12 @@
 		Neue Monster sollten folgende Eigenschaften haben:
 
 		\bmhList{
-			\item Jede Kreatur muss eine Stufe (1, 2, 3\ldots) haben.
-			\item Die Grundwerte einer Kreatur mit Stufe X sind: Attribute~X+1; BEW~4, LP~X, AP~3
-			\item Davon ausgehend dürfen Zahlen paarweise verschoben werden, z.B. ST um 1 senken und dafür LP um 1 erhöhen.
-			\item Die Attribute bewegen sich letztlich zwischen Kreaturstufe (schlecht) und Kreaturstufe+2 (gut).
-			\item Für jede besondere Fähigkeit muss ebenfalls eine der Zahlen gesenkt werden. Die Stufe der Kreatur erhöht sich dadurch um 1.
-			\item Eine durchschnittliche Bewegung ist BEW 4--5, BEW3 ist langsam, BEW6 schnell.
+			\item Jede Kreatur hat eine Stufe (I, II, \ldots).
+			\item Die Grundwerte auf Stufe X sind: Attribute~X+1; BEW~4, LP~X, AP~3
+			\item Davon ausgehend dürfen Zahlen paarweise verschoben werden, z.B. ST-1 und dafür LP+1.
+			\item Attribute bewegen sich letztlich zwischen Stufe+0 (schlecht), Stufe+1 (Durchschnitt), Kreaturstufe+2 (gut) und Kreaturstufe+3 (extrem gut).
+			\item Für jede besondere Fähigkeit muss ebenfalls eine der Zahlen gesenkt werden.
+			\item Eine BEW von 3 ist langsam, eine BEW von 4--5 Durchschnitt und eine BEW von 6+ schnell.
 			\item Durchschnittliche Kreaturen haben soviel LP wie ihre Stufe, zähe Kreaturen 1--2 mehr.
 		}
 
