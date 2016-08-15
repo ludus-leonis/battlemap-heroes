@@ -109,7 +109,18 @@
 	bookmarksopen=false
 }
 
+% --- pdf layers -------------------------------------------------------
+
 \usepackage{ocgx} % for pdf layer support
+
+\newcommand{\ocgBackground}[1]{\begin{ocg}{\backgroundlayername}{oc1}{1}#1\end{ocg}}
+
+\newcommand{\autoinvert}[3]{%
+	\begin{tikzpicture}[every node/.style={inner sep=0,outer sep=0}]
+		\node[](0,0){#2#3};
+		\ocgBackground{\node[](0,0){#1#3};}
+	\end{tikzpicture}%
+}
 
 % --- fonts & symbols --------------------------------------------------
 
@@ -171,10 +182,9 @@
 \newcommand{\suit}{{\ffdings \textup{S}}}
 \newcommand{\tools}{{\ffdings \textup{T}}}
 
-\newcommand{\trap}{{\ffdings {k}}}
-\newcommand{\treasure}{{\ffdings \textbf{D}}}
-\newcommand{\info}{{\ffdings \textbf{i}}}
-\newcommand{\search}{{\ffdings {E}}}
+\newcommand{\trap}{{\ffdings \textit{!}}}
+\newcommand{\search}{{\ffdings \textit{?}}}
+\newcommand{\monster}{{\ffdings \textit{*}}}
 \newcommand{\gold}{G}
 
 \newcommand{\nipajin}{\href{http://ludus-leonis.com/nipajin}{\makebox{NIP'AJIN}}}
@@ -204,7 +214,7 @@
 
 \fancypagestyle{battles}{%
 	\fancyhf{}
-	\fancyhead[LE,RO]{\color{white}\textbf{\thepage}}
+	\fancyhead[LE,RO]{\autoinvert{\color{white}}{\color{black}}{\textbf{\thepage}}}
 }
 \topmargin -15mm
 \headsep 9mm
@@ -412,7 +422,7 @@
 				\else
 					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
 				\fi
-		\begin{ocg}{\backgroundlayername}{oc1}{1}%
+		\ocgBackground{%
 				\path [
 					fill stretch image=\image{bmh/grid.pdf},
 					xshift=-0.5\paperwidth,
@@ -438,8 +448,8 @@
 				\else
 					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
 				\fi
-		\end{ocg}%
-			\end{tikzpicture}\begin{ocg}{\backgroundlayername}{oc1}{1}\bgboxinjectonce\end{ocg}\bgboxinjectalways%
+		}%
+			\end{tikzpicture}\ocgBackground{\bgboxinjectonce}\bgboxinjectalways%
 			\bgbox%
 			\grenewcommand{\bgboxtopcolor}{primary}%
 			\grenewcommand{\bgboxtopheight}{\bgboxverticaltopheight}%
@@ -474,7 +484,7 @@
 				\else
 					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{black}\strut\bgboxtoptexttwopage}; % headline
 				\fi
-		\begin{ocg}{\backgroundlayername}{oc1}{1}%
+		\ocgBackground{%
 				\path [
 					fill stretch image=\image{bmh/blackpage.pdf},
 					xshift=-0.5\paperwidth,
@@ -486,8 +496,8 @@
 				\else
 					\node [blue, align=center, yshift=9.5cm, xshift=74mm] (0,0) {\itshape\fffancy\fontsize{24pt}{32pt}\selectfont\color{white}\strut\bgboxtoptexttwopage}; % headline
 				\fi
-		\end{ocg}%
-			\end{tikzpicture}\begin{ocg}{\backgroundlayername}{oc1}{1}\bgboxinjectonce\end{ocg}%
+		}%
+			\end{tikzpicture}\ocgBackground{\bgboxinjectonce}%
 		\bgboxinjectalways%
 		\grenewcommand{\bgboxinjectonce}{}%
 	}
@@ -527,6 +537,26 @@
 	\end{center}
 
 }}
+
+% a double-page chapter start with full-page artwork
+% 1 = string for TOC
+% 2 = content for right-side box
+\newcommand{\chapterPage}[2]{%
+	\phantomsection\addcontentsline{toc}{chapter}{#1}
+	\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
+	\thispagestyle{empty}
+	\onePageHeader{}
+	\vspace*{1mm}
+	\newpage
+	\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
+	\thispagestyle{empty}
+	\onePageHeader{}
+	\vspace*{119mm}
+	{\fffancy\fontsize{56}{56}\selectfont
+		\noindent\hspace*{5mm}
+		\autoinvert{\color{white}}{\color{black}}{\parbox{12cm}{\centering#2}}
+	}\newpage
+}
 
 % a box for the powers
 % 1 = name
@@ -583,3 +613,12 @@
 \newcommand{\nbsp}{\,\,}
 
 \newcommand{\tag}[1]{[#1]}%🔖
+
+\newcommand{\mission}[5]{
+	\twoPageHeader[#1]{#2}
+	\backgroundHalfImage{#3}{#4}
+	\begin{multicols}{2}
+		#5
+	\end{multicols}\newpage
+	\grenewcommand{\bgboxinjectalways}{}
+}

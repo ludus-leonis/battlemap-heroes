@@ -23,6 +23,7 @@
 % ##############################################################################
 
 \input{misc.tex}
+\input{credits.tex}
 \input{basic.tex}
 \input{expert.tex}
 \input{heroes.tex}
@@ -30,6 +31,7 @@
 \input{bestiary.tex}
 \input{mission-01.tex}
 \input{mission-02.tex}
+\input{mission-03.tex}
 
 \begin{document}
 
@@ -67,22 +69,10 @@
 
 % ### BASIC ####################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhBasicToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhBasicChapter}
-}\newpage
+\chapterPage{\bmhBasicToc}{\bmhBasicChapter}
 
 \twoPageHeader[lPreparation]{\bmhBasicHeadline}
-\backgroundHalfImage{bmh/setup.pdf}{17cm}
+\backgroundHalfImage{bmh/diagram-setup.pdf}{17cm}
 \begin{multicols}{2}
 	\bmhMiscPreparation
 \end{multicols}\newpage
@@ -104,19 +94,7 @@
 
 % ### EXPERT ###################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhExpertToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhExpertChapter}
-}\newpage
+\chapterPage{\bmhExpertToc}{\bmhExpertChapter}
 
 \twoPageHeader[lRulesExpert]{\bmhExpertHeadline}
 \begin{multicols}{2}
@@ -153,42 +131,21 @@ Platzhalter-Seite \newpage
 
 % ### SCENARIOS ################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscMissionsToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{119mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscMissions}
-}\newpage
+\chapterPage{\bmhMiscMissionsToc}{\bmhMiscMissions}
 
 % ------------------------------------------------------------------------------
 \backgroundpagesmissions
 
-\twoPageHeader[lAI]{\bmhMissionIHeadline}
-\zlabel{lMissions}
-\backgroundHalfImage{bmh/mission-1.pdf}{15cm}
-\begin{multicols}{2}
-	\bmhMissionI
-\end{multicols}\newpage
-\grenewcommand{\bgboxinjectalways}{}
+\mission{lAI}{\bmhMissionIHeadline}{bmh/mission-1.pdf}{15cm}{\bmhMissionI}
 
-\twoPageHeader[lAI]{\bmhMissionIIHeadline}
-\backgroundHalfImage{bmh/mission-2.pdf}{18cm}
-\begin{multicols}{2}
-	\bmhMissionII
-\end{multicols}\newpage
-\grenewcommand{\bgboxinjectalways}{}
+\mission{lAII}{\bmhMissionIIHeadline}{bmh/mission-2.pdf}{18cm}{\bmhMissionII}
+
+\mission{lAIII}{\bmhMissionIIIHeadline}{bmh/mission-3.pdf}{19cm}{\bmhMissionIII}
 
 % ### BESTIARY #################################################################
 
 \backgroundpages
-\phantomsection\addcontentsline{toc}{chapter}
+\phantomsection\addcontentsline{toc}{chapter}{\bmhBestiaryToc}
 \twoPageHeader[lBestiary]{\bmhBestiaryHeadline}
 \begin{multicols*}{2}
 	\bmhBestiary
@@ -196,19 +153,7 @@ Platzhalter-Seite \newpage
 
 % ### APPENDIX #################################################################
 
-\phantomsection\addcontentsline{toc}{chapter}{\bmhMiscAppendixToc}
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1a.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{1mm}
-\newpage
-\renewcommand{\bgboxinjectonce}{\includegraphics[width=\paperwidth,height=\paperheight]{\image{bmh/chapter1b.pdf}}}
-\thispagestyle{empty}
-\onePageHeader{}
-\vspace*{129mm}
-{\fffancy\color{white}\fontsize{56}{56}\selectfont
-	\noindent\hspace*{8mm}\parbox{12cm}{\centering\bmhMiscAppendixHeadline}
-}\newpage
+\chapterPage{\bmhMiscAppendixToc}{\vspace*{10mm}\bmhMiscAppendixHeadline}
 
 % --- CHANGELOG ----------------------------------------------------------------
 
